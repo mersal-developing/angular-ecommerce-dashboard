@@ -1,4 +1,4 @@
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -8,6 +8,7 @@ import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
 import { BACKEND_URL, backendUrlFactory } from './core/config/backend-url.factory';
 import { BackendUrlService } from './core/services/backend-url.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -21,6 +22,8 @@ export const appConfig: ApplicationConfig = {
       useFactory: backendUrlFactory,
       deps: [BackendUrlService],
     },
-  ]
+    importProvidersFrom([BrowserAnimationsModule])
+  ],
+
 
 };

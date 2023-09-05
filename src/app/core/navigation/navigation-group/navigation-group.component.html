@@ -1,0 +1,20 @@
+<ng-container *ngIf="!item.hidden">
+    <span class="mb-2 mt-2 text-sm font-bold w-full inline-block text-white">{{item.title}}</span>
+    <ng-container *ngFor="let child of item.children">
+
+        <ng-container [ngSwitch]="child.type">
+            <ng-container *ngSwitchCase="navItemType.Item">
+                <app-navigation-item [item]="child"></app-navigation-item>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="navItemType.Collapsable">
+                <app-navigation-collapsable [item]="child"></app-navigation-collapsable>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="navItemType.Tabs">
+                <app-navigation-tabs [item]="child"></app-navigation-tabs>
+            </ng-container>
+        </ng-container>
+
+    </ng-container>
+</ng-container>

@@ -1,0 +1,54 @@
+<ng-container *ngIf="!item.hidden">
+
+    <!-- item.url -->
+    <ng-container *ngIf="item.url && !item.externalUrl && !item.function">
+        <a [routerLink]="item.url" [routerLinkActive]="['active',  'bg-primary']"
+            [routerLinkActiveOptions]="{ exact: item.exactMatch ? item.exactMatch : false }"
+            class="flex flex-col items-center">
+            <ng-container [ngTemplateOutlet]="itemContent" [ngTemplateOutletContext]="{item: item}"></ng-container>
+        </a>
+    </ng-container>
+
+    <!-- item.externalUrl -->
+    <ng-container *ngIf="item.url && item.externalUrl && !item.function">
+        <a [href]="item.function" [target]="item.target" class="flex flex-col items-center">
+            <ng-container [ngTemplateOutlet]="itemContent" [ngTemplateOutletContext]="{item: item}"></ng-container>
+        </a>
+    </ng-container>
+
+    <!-- item.function -->
+    <ng-container *ngIf="!item.url && item.function">
+        <a (click)="item.function()" class="flex flex-col items-center">
+            <ng-container [ngTemplateOutlet]="itemContent" [ngTemplateOutletContext]="{item: item}"></ng-container>
+        </a>
+    </ng-container>
+
+    <!-- item.url && item.function -->
+    <ng-container *ngIf="item.url && item.function">
+        <a (click)="item.function()" [routerLink]="item.url" [routerLinkActive]="['active',  'bg-primary']"
+        [routerLinkActiveOptions]="{ exact: item.exactMatch ? item.exactMatch : false }" class="flex flex-col items-center">
+            <ng-container [ngTemplateOutlet]="itemContent" [ngTemplateOutletContext]="{item: item}"></ng-container>
+        </a>
+    </ng-container>
+
+    <!-- item.externalUrl && item.function -->
+    <ng-container *ngIf="item.externalUrl && item.function">
+        <a [href]="item.externalUrl" (click)="item.function()" [target]="item.target"
+            class="flex flex-col items-center">
+            <ng-container [ngTemplateOutlet]="itemContent" [ngTemplateOutletContext]="{item: item}"></ng-container>
+        </a>
+    </ng-container>
+
+
+</ng-container>
+
+
+<ng-template #itemContent let-item="item">
+    <ng-container *ngIf="item.icon">
+        <mat-icon [fontIcon]="item.icon" class="text-white text-base mr-1"></mat-icon>
+    </ng-container>
+    <span class="text-white text-base">{{item.title}}</span>
+    <ng-container *ngIf="item.badge">
+        <span class="text-white text-base">{{item.badge.title}}</span>
+    </ng-container>
+</ng-template>
