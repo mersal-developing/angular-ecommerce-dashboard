@@ -14,7 +14,7 @@
 }
 
 .active-link {
-  @apply  bg-primary-600 rounded-md font-medium;
+  @apply  bg-primary-600 rounded-md font-medium shadow-md;
 
   mat-icon, span {
     @apply text-black;
@@ -22,9 +22,14 @@
 }
 
 .active-collapse {
-  @apply  bg-primary-700 rounded-md font-medium;
+  @apply  bg-secondary-300 rounded-md font-medium;
 }
 
-
+.nav-tab-group {
+  mat-tab-header {
+    display: none;
+  }
+  
+}
 
 

@@ -21,7 +21,7 @@ export const NavLinks: NavigationItem[] = [
             {
                 id: 'ordersNav',
                 title: 'Orders',
-                type: 'collapsable',
+                type: 'tabs',
                 icon: 'shopping_cart',
                 hidden: false,
                 children: [
@@ -37,7 +37,7 @@ export const NavLinks: NavigationItem[] = [
                     {
                         id: 'cart',
                         title: 'Cart',
-                        type: 'collapsable',
+                        type: 'tabs',
                         icon: 'shopping_cart',
                         hidden: false,
                         children: [
@@ -118,7 +118,7 @@ export const NavLinks: NavigationItem[] = [
                 title: 'Dashboard',
                 type: 'item',
                 icon: 'dashboard',
-                url: '/',
+                url: '/affiliate-dashboard',
                 hidden: false,
             },
             {
