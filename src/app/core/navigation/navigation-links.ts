@@ -13,7 +13,9 @@ export const NavLinks: NavigationItem[] = [
                 type: 'item',
                 icon: 'insert_chart_outlined',
                 hidden: false,
-                url: '/',
+                // url: '/',
+                function: () => console.log('dd'),
+
                 active: true
             },
             {
@@ -28,7 +30,8 @@ export const NavLinks: NavigationItem[] = [
                         title: 'Orders2222',
                         type: 'item',
                         icon: 'local_mall',
-                        url: '/orders',
+                        //  url: '/orders',
+                        function: () => console.log('dd'),
                         hidden: false,
                     },
                     {
@@ -53,10 +56,10 @@ export const NavLinks: NavigationItem[] = [
                                 icon: 'shopping_cart',
                                 url: '/cart',
                                 hidden: false,
-                                
+
                             },
                         ],
-                        
+
                     },
                 ],
             },
@@ -115,7 +118,7 @@ export const NavLinks: NavigationItem[] = [
                 title: 'Dashboard',
                 type: 'item',
                 icon: 'dashboard',
-                url: '/affiliate-dashboard',
+                url: '/',
                 hidden: false,
             },
             {

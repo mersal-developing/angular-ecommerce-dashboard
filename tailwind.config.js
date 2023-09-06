@@ -7,8 +7,12 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          ...colors.blue,
-          DEFAULT: colors.blue[500],
+          ...colors.purple,
+          DEFAULT: colors.purple[500],
+        }, 
+        secondary: {
+          ...colors.amber,
+          DEFAULT: colors.amber[500],
         }
       },
       keyframes: {

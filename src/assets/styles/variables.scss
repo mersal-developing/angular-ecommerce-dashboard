@@ -1,0 +1,34 @@
+/* 
+   This :root block defines custom CSS variables for dynamic color values,
+   enabling easy color customization across the stylesheet.
+
+   Variables:
+   --primary-color-100: Main background color (lighter shade)
+   --primary-color-200: Main background color (darker shade)
+   --accent-color: Accent text and elements
+
+   Note: These variables are provided here for reference. You may already have 
+   configured the primary color in your tailwind.config.js file.
+
+   In tailwind.config.js:
+
+   module.exports = {
+     theme: {
+       extend: {
+         colors: {
+           "primary": {
+             100: "var(--primary-color-100)",
+             200: "var(--primary-color-200)",
+           },
+           "accent": "var(--accent-color)",
+         },
+       },
+     },
+   };
+*/
+
+:root {
+    --primary-color-100: #fff;
+    --primary-color-200: #fff00;
+    --accent-color: #000;
+}

@@ -14,16 +14,6 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-@layer components {
-  .active-link {
-    @apply py-2 pl-px pr-0 -ml-5 bg-blue-700 text-white font-semibold rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
-    
-    &> :first-child {
-      margin-left: 1.25rem;
-    }
-  }
-}
-
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -31,7 +21,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #4299e1;
+  background-color: theme('colors.primary.300');
   border-radius: 1.5px;
 
 }

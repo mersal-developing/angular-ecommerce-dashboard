@@ -1,31 +1,33 @@
-<div class="flex justify-between items-center cursor-pointer mt-3 mb-3" (click)="toggle()">
-    <div class="flex items-center">
-        <ng-container *ngIf="item.icon">
-            <mat-icon [fontIcon]="item.icon" class="mr-1 text-white text-base"></mat-icon>
-        </ng-container>
-        <span class="text-white text-base">{{item.title}}</span>
+<div class="hover-link mb-1" [class.active-collapse]="isOpen">
+    <div class="flex justify-between items-center cursor-pointer py-2 px-2" (click)="toggle()">
+        <div class="flex items-center">
+            <ng-container *ngIf="item.icon">
+                <mat-icon [fontIcon]="item.icon" class="mr-1 text-white text-base"></mat-icon>
+            </ng-container>
+            <span class="text-white text-base">{{item.title}}</span>
+        </div>
+        <mat-icon fontIcon="keyboard_arrow_right" class="text-white" [class.rotate-90]="isOpen"></mat-icon>
     </div>
-    <mat-icon fontIcon="keyboard_arrow_right" class="text-white" [class.rotate-90]="isOpen"></mat-icon>
-</div>
 
-<ng-container *ngIf="isOpen">
-    <div class="children">
-        <ng-container *ngFor="let child of item.children">
+    <ng-container *ngIf="isOpen">
+        <div class="children">
+            <ng-container *ngFor="let child of item.children">
 
-            <ng-container [ngSwitch]="child.type">
-                <ng-container *ngSwitchCase="navItemType.Item">
-                    <app-navigation-item [item]="child" class="nav-collapse"></app-navigation-item>
-                </ng-container>
+                <ng-container [ngSwitch]="child.type">
+                    <ng-container *ngSwitchCase="navItemType.Item">
+                        <app-navigation-item [item]="child" class="nav-collapse"></app-navigation-item>
+                    </ng-container>
 
-                <ng-container *ngSwitchCase="navItemType.Collapsable">
-                    <app-navigation-collapsable [item]="child"
-                        class="nav-collapse nav-collapse-l2"></app-navigation-collapsable>
-                </ng-container>
+                    <ng-container *ngSwitchCase="navItemType.Collapsable">
+                        <app-navigation-collapsable [item]="child"
+                            class="nav-collapse nav-collapse-l2"></app-navigation-collapsable>
+                    </ng-container>
 
-                <ng-container *ngSwitchCase="navItemType.Tabs">
-                    <app-navigation-tabs [item]="child"></app-navigation-tabs>
+                    <ng-container *ngSwitchCase="navItemType.Tabs">
+                        <app-navigation-tabs [item]="child"></app-navigation-tabs>
+                    </ng-container>
                 </ng-container>
             </ng-container>
-        </ng-container>
-    </div>
-</ng-container>
+        </div>
+    </ng-container>
+</div>

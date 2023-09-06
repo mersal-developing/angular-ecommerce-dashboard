@@ -1,15 +1,30 @@
 .nav-collapse {
 
-    &> :first-child {
-      margin-left: 20px;
-      /* Adjust the margin value as needed */
-    }
+  &> :first-child {
+    margin-left: 20px;
   }
-  
-  .nav-collapse-l2 {
-    .children {
-      margin-left: 30px;
-      /* Adjust the margin value as needed */
-    }
-  
+}
+
+.nav-link {
+  @apply flex flex-row items-center p-2 mb-1;
+}
+
+.hover-link {
+  @apply hover:bg-primary-700 hover:font-medium hover:rounded-md;
+}
+
+.active-link {
+  @apply  bg-primary-600 rounded-md font-medium;
+
+  mat-icon, span {
+    @apply text-black;
   }
+}
+
+.active-collapse {
+  @apply  bg-primary-700 rounded-md font-medium;
+}
+
+
+
+
