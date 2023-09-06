@@ -1,0 +1,15 @@
+.nav-collapse {
+
+    &> :first-child {
+      margin-left: 20px;
+      /* Adjust the margin value as needed */
+    }
+  }
+  
+  .nav-collapse-l2 {
+    .children {
+      margin-left: 30px;
+      /* Adjust the margin value as needed */
+    }
+  
+  }

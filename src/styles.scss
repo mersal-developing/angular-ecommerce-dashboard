@@ -2,6 +2,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import 'assets/styles/custom-classes.scss';
 
 html,
 body {
@@ -11,6 +12,16 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@layer components {
+  .active-link {
+    @apply py-2 pl-px pr-0 -ml-5 bg-blue-700 text-white font-semibold rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+    
+    &> :first-child {
+      margin-left: 1.25rem;
+    }
+  }
 }
 
 
@@ -32,18 +43,3 @@ body {
 
 
 
-.nav-collapse {
-
-  &> :first-child {
-    margin-left: 20px;
-    /* Adjust the margin value as needed */
-  }
-}
-
-.nav-collapse-l2 {
-  .children {
-    margin-left: 40px;
-    /* Adjust the margin value as needed */
-  }
-
-}
