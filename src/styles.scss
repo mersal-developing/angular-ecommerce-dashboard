@@ -15,21 +15,31 @@ body {
 }
 
 
+// edit scrollbar style for chrome and firefox
+
+app-navigation-menu {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+app-navigation-menu:hover::-webkit-scrollbar-thumb {
+  background-color: theme('colors.primary.300');
+}
+
+app-navigation-menu:hover {
+  scrollbar-color: theme('colors.primary.300') theme('colors.primary.300');
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   height: 20px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: theme('colors.primary.300');
+  background-color: transparent;
   border-radius: 1.5px;
-
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #EDF2F7;
+  background-color: transparent;
 }
-
-
-
-
