@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LinkTargetType, NavigationItem } from '../../models';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { NavigationItem, LinkTargetType } from 'src/app/shared/models/navigation.types';
 
 @Component({
   selector: 'app-navigation-item',

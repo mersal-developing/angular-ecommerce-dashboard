@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, Input, forwardRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavItemType, NavigationItem } from '../../models';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { NavigationItemComponent } from "../navigation-item/navigation-item.component";
 import { NavigationCollapsableComponent } from "../navigation-collapsable/navigation-collapsable.component";
+import { NavigationItem, NavItemType } from 'src/app/shared/models/navigation.types';
 
 @Component({
   selector: 'app-navigation-tabs',

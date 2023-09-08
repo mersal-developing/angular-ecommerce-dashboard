@@ -5,18 +5,18 @@
                 <ng-container *ngIf="item.icon">
                     <mat-icon [fontIcon]="item.icon" class="mr-1 text-white text-base"></mat-icon>
                 </ng-container>
-                <span class="text-white text-base">{{item.title}}</span>
+                <span class="text-white text-base nav-fold">{{item.title}}</span>
             </div>
-            <mat-icon fontIcon="keyboard_arrow_right" class="text-white"></mat-icon>
+            <mat-icon fontIcon="keyboard_arrow_right" class="text-white nav-fold"></mat-icon>
         </div>
 
     </mat-tab>
     <ng-container *ngIf="openNextTab">
         <mat-tab label="tab2">
             <div class="children">
-                <div class="flex justify-start items-center cursor-pointer" (click)="closeTab()">
+                <div class="flex justify-start items-center cursor-pointer tab-back-button" (click)="closeTab()">
                     <mat-icon fontIcon="keyboard_arrow_left" class="text-white"></mat-icon>
-                    <span class="text-secondary-300 text-base">{{item.title}}</span>
+                    <span class="text-secondary-300 text-base nav-fold">{{item.title}}</span>
                 </div>
 
                 <ng-container *ngFor="let child of item.children">

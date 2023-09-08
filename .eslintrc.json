@@ -42,6 +42,10 @@
         "plugin:@angular-eslint/template/accessibility"
       ],
       "rules": {
+        "rules": {
+          "eqeqeq": "off",
+          "no-console": "off"
+        },
         "@angular-eslint/template/click-events-have-key-events": [
           "warn"
         ],

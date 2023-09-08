@@ -2,8 +2,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavigationItemComponent } from '../navigation-item/navigation-item.component';
-import { NavItemType, NavigationItem } from '../../models';
 import { NavigationTabsComponent } from "../navigation-tabs/navigation-tabs.component";
+import { NavigationItem, NavItemType } from 'src/app/shared/models/navigation.types';
 
 @Component({
     selector: 'app-navigation-collapsable',
