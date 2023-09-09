@@ -7,7 +7,7 @@ import { NavigationGroupComponent } from "../navigation-group/navigation-group.c
 import { NavigationTabsComponent } from "../navigation-tabs/navigation-tabs.component";
 import { MatIconModule } from '@angular/material/icon';
 import { UtilitiesService } from 'src/app/shared/services/utilities.service';
-import { NavigationItem, NavItemType, MenuStatus } from 'src/app/shared/models/navigation.types';
+import { NavigationItem, NavItemType, MenuOpenStatus } from 'src/app/shared/models/navigation.types';
 
 @Component({
   selector: 'app-navigation-menu',
@@ -26,38 +26,59 @@ import { NavigationItem, NavItemType, MenuStatus } from 'src/app/shared/models/n
 })
 export class NavigationMenuComponent implements OnInit {
   utilitiesService = inject(UtilitiesService);
+
   navItems!: NavigationItem[];
   navItemType = NavItemType;
   menuStatus!: number;
-  menuOpenStatus = MenuStatus;
+
+  get savedMenuStatus(): string | null {
+    const menuStatus = this.utilitiesService.getLocalStorageItem('menu-status');
+    if (menuStatus !== null) {
+      return menuStatus;
+    } else {
+      return null;
+    }
+  }
+
+  get shouldMenuClosed(): boolean | null {
+    if (!this.savedMenuStatus) {
+      return null;
+    }
+    return parseInt(this.savedMenuStatus) === MenuOpenStatus.Closed;
+  }
+
+  get isMenuClosed(): boolean {
+    return this.menuStatus === MenuOpenStatus.Closed;
+  }
 
   ngOnInit(): void {
     this.getNavigationLinks();
     this.setInitilaMenuStatus();
   }
 
-  getNavigationLinks() {
+  getNavigationLinks(): void {
     this.navItems = NavLinks;
   }
 
-  setInitilaMenuStatus() {
-    const menuSatus = this.utilitiesService.getLocalStorageItem('menu-status');
-    this.menuStatus = menuSatus ? parseInt(menuSatus) : MenuStatus.Open;
+  setInitilaMenuStatus(): void {
+    this.menuStatus = this.savedMenuStatus ? parseInt(this.savedMenuStatus) : MenuOpenStatus.Open;
   }
 
-  changeMenuStatus() {
-    this.menuStatus = (this.menuStatus === MenuStatus.Open) ? MenuStatus.Closed : MenuStatus.Open;
-
-    this.utilitiesService.setLocalStorageItem('menu-status', this.menuStatus.toString());    
+  openMenu(): void {
+    this.menuStatus = MenuOpenStatus.Open;
   }
 
-  openMenu() {
-    this.menuStatus = MenuStatus.Open;
+  closeMenu(): void {
+    this.menuStatus = MenuOpenStatus.Closed;
   }
 
-  closeMenu() {
-    const menuSatus = this.utilitiesService.getLocalStorageItem('menu-status');
-    this.menuStatus = (menuSatus && parseInt(menuSatus) === MenuStatus.Closed) ? MenuStatus.Closed : MenuStatus.Open;
+  changeMenuStatus(): void {
+    (this.savedMenuStatus && (parseInt(this.savedMenuStatus) === MenuOpenStatus.Closed)) ? this.openMenu() : this.closeMenu();
+    this.saveMenuStatus();
+  }
+
+  saveMenuStatus(): void {
+    this.utilitiesService.setLocalStorageItem('menu-status', this.menuStatus.toString());
   }
 
 }

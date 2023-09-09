@@ -1,9 +1,10 @@
-<div class="nav-menu" [class.nav-menu-collapsed]="menuStatus === menuOpenStatus.Closed" (mouseenter)="openMenu()"
-    (mouseleave)="closeMenu()">
+<div class="nav-menu" [class.nav-menu-collapsed]="isMenuClosed" (mouseenter)="isMenuClosed && openMenu()"
+    (mouseleave)="shouldMenuClosed && closeMenu()">
 
     <div class="nav-menu-header mb-4 flex items-center justify-between">
-        <img src="assets/icons/m.jpg" alt="" width="40" class="cursor-pointer" (click)="changeMenuStatus()">
-        <mat-icon fontIcon="menu" class="text-white cursor-pointer nav-fold" (click)="changeMenuStatus()"></mat-icon>
+        <img src="assets/icons/m.jpg" alt="" width="40" class="cursor-pointer">
+        <mat-icon fontIcon="menu" class="text-white cursor-pointer nav-fold" (click)="changeMenuStatus()">
+        </mat-icon>
     </div>
 
     <div class="nav-menu-items">

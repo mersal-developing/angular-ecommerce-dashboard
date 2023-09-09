@@ -33,7 +33,7 @@ export enum LinkTargetType {
     Top = '_top',
 }
 
-export enum MenuStatus {
+export enum MenuOpenStatus {
     Open = 1,
     Closed = 0
 }

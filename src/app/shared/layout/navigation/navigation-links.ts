@@ -13,9 +13,7 @@ export const NavLinks: NavigationItem[] = [
                 type: 'item',
                 icon: 'insert_chart_outlined',
                 hidden: false,
-                // url: '/',
-                function: () => console.log('dd'),
-
+                url: '/Products',
                 active: true
             },
             {

@@ -12,10 +12,17 @@ import { NavigationItem, NavItemType } from 'src/app/shared/models/navigation.ty
   templateUrl: './navigation-tabs.component.html',
   styleUrls: ['./navigation-tabs.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, MatTabsModule, MatIconModule, NavigationItemComponent, forwardRef(() => NavigationCollapsableComponent)]
+  imports: [
+    CommonModule,
+    MatTabsModule,
+    MatIconModule,
+    NavigationItemComponent,
+    forwardRef(() => NavigationCollapsableComponent)
+  ]
 })
+
 export class NavigationTabsComponent {
-  @Input({ required: true }) item!: NavigationItem;
+  @Input({ required: true }) item!: NavigationItem; 
   openNextTab = false;
   navItemType = NavItemType;
   currentSelectedRootTab = 0;
@@ -28,7 +35,6 @@ export class NavigationTabsComponent {
   closeTab() {
     this.currentSelectedRootTab--;
     this.openNextTab = false;
-
   }
 
 }
