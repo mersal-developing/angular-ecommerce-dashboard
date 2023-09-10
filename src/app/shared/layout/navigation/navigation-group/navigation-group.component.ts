@@ -4,7 +4,7 @@ import { NavigationItemComponent } from '../navigation-item/navigation-item.comp
 import { NavigationCollapsableComponent } from "../navigation-collapsable/navigation-collapsable.component";
 import { NavigationTabsComponent } from "../navigation-tabs/navigation-tabs.component";
 import { MatIconModule } from '@angular/material/icon';
-import { NavigationItem, NavItemType } from 'src/app/shared/models/navigation.types';
+import { NavigationItem, NavItemType } from 'src/app/shared/layout/navigation/models/navigation.types';
 
 @Component({
   selector: 'app-navigation-group',

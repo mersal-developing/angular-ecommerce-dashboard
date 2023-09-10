@@ -5,51 +5,12 @@
   }
 }
 
-.nav-link {
-  @apply flex flex-row items-center p-2 mb-1;
-}
-
 .hover-link {
   @apply hover:bg-primary-700 hover:font-medium hover:rounded-md;
 }
 
-.active-link {
-  @apply bg-primary-600 rounded-md font-medium shadow-md;
-
-  mat-icon,
-  span {
-    @apply text-black;
-  }
-}
-
-.active-collapse {
-  @apply bg-primary-800 rounded-md font-medium;
-}
-
-.nav-tab-group {
-  mat-tab-header {
-    display: none;
-  }
-
-}
-
-
-.nav-menu {
-  @apply flex flex-col w-72 absolute overflow-y-auto h-full top-0 left-0 bg-primary-500 p-4;
-}
-
-.nav-group {
-  .nav-group-title-placeholder {
-    display: none;
-    height: 2px;
-    width: 100%;
-    background: #fff;
-    opacity: 0.3;
-  }
-}
-
 .nav-menu-collapsed {
-  @apply w-24;
+  width: 6rem !important;
   align-items: center;
 
   .nav-fold {
@@ -58,7 +19,7 @@
 
   .nav-group {
     .nav-group-title-placeholder {
-      display: inline-block;
+      display: inline-block !important;
     }
   }
 
@@ -77,35 +38,4 @@
     display: none;
   }
 
-}
-
-
-
-// edit scrollbar style for chrome and firefox
-
-.nav-menu {
-  scrollbar-width: thin;
-  scrollbar-color: transparent transparent;
-}
-
-.nav-menu:hover::-webkit-scrollbar-thumb {
-  background-color: theme('colors.primary.400');
-}
-
-.nav-menu:hover {
-  scrollbar-color: theme('colors.primary.400') theme('colors.primary.400');
-}
-
-.nav-menu::-webkit-scrollbar {
-  width: 10px;
-  height: 20px;
-}
-
-.nav-menu::-webkit-scrollbar-thumb {
-  background-color: transparent;
-  border-radius: 2px;
-}
-
-.nav-menu::-webkit-scrollbar-track {
-  background-color: transparent;
 }

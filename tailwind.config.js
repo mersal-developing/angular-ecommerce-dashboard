@@ -7,13 +7,14 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          ...colors.indigo,
-          DEFAULT: colors.indigo[500],
+          ...colors.blue,
+          DEFAULT: colors.blue[500],
         }, 
         secondary: {
           ...colors.yellow,
           DEFAULT: colors.yellow[500],
-        }
+        },
+        'custom-grey': '#4b5564'
       },
       keyframes: {
         slide: {

@@ -1,0 +1,21 @@
+//over ride Angular material style
+
+.nav-tab-group {
+    mat-tab-header {
+        display: none;
+    }
+}
+
+.header-container {
+    .mdc-button {
+        min-width: 40px;
+    }
+
+    .mat-mdc-icon-button:hover .mat-mdc-button-persistent-ripple::before {
+        opacity: 0;
+    }
+
+    .mat-mdc-icon-button .mat-mdc-button-ripple {
+        display: none !important;
+    }
+}

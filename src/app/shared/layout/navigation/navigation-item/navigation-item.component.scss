@@ -1,0 +1,15 @@
+:host {
+    .nav-link {
+        @apply flex flex-row items-center p-2 mb-1;
+    }
+
+    .active-link {
+        @apply bg-primary-600 rounded-md font-medium shadow-md;
+      
+        mat-icon,
+        span {
+          @apply text-black;
+        }
+      }
+
+}
