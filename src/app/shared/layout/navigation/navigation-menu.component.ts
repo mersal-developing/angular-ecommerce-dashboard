@@ -1,13 +1,13 @@
 import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavigationItemComponent } from "../navigation-item/navigation-item.component";
-import { NavLinks } from '../navigation-links';
-import { NavigationCollapsableComponent } from "../navigation-collapsable/navigation-collapsable.component";
-import { NavigationGroupComponent } from "../navigation-group/navigation-group.component";
-import { NavigationTabsComponent } from "../navigation-tabs/navigation-tabs.component";
 import { MatIconModule } from '@angular/material/icon';
 import { UtilitiesService } from 'src/app/shared/services/utilities.service';
 import { NavigationItem, NavItemType, MenuOpenStatus } from 'src/app/shared/models/navigation.types';
+import { NavigationItemComponent } from './navigation-item/navigation-item.component';
+import { NavigationCollapsableComponent } from './navigation-collapsable/navigation-collapsable.component';
+import { NavigationGroupComponent } from './navigation-group/navigation-group.component';
+import { NavigationTabsComponent } from './navigation-tabs/navigation-tabs.component';
+import { NavLinks } from '../../models';
 
 @Component({
   selector: 'app-navigation-menu',
