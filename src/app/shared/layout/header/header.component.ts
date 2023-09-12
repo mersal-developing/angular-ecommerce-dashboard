@@ -6,14 +6,15 @@ import { Router } from '@angular/router';
 import { MenuOpenStatus } from '../navigation/models';
 import { NavigationMenuService } from '../navigation/navigation.service';
 import { UtilitiesService } from '../../services/utilities.service';
+import { UserProfileDropdownComponent } from "../../components/user-profile-dropdown/user-profile-dropdown.component";
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [CommonModule, MatIconModule, MatButtonModule],
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-header',
+    standalone: true,
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, MatIconModule, MatButtonModule, UserProfileDropdownComponent]
 })
 export class HeaderComponent {
   router = inject(Router);
