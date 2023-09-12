@@ -1,5 +1,5 @@
-<div class="nav-menu" [class.nav-menu-collapsed]="isMenuClosed" (mouseenter)="isMenuClosed && openMenu()"
-    (mouseleave)="shouldMenuClosed && closeMenu()">
+<div class="nav-menu hidden lg:flex" [class.nav-menu-collapsed]="isMenuClosed" [class.nav-menu__mobile]="isMobileView"
+    (mouseenter)="isMenuClosed && openMenu()" (mouseleave)="shouldMenuClosed && closeMenu()">
 
     <div class="nav-menu-header mb-4 flex items-center justify-between">
         <img src="assets/icons/m.jpg" alt="" width="40" class="cursor-pointer">

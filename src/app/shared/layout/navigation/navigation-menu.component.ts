@@ -1,13 +1,18 @@
-import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MediaMatcher } from '@angular/cdk/layout';
 import { MatIconModule } from '@angular/material/icon';
-import { UtilitiesService } from 'src/app/shared/services/utilities.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { filter, skip } from 'rxjs';
+
 import { NavigationItem, NavItemType, MenuOpenStatus } from 'src/app/shared/layout/navigation/models/navigation.types';
 import { NavigationItemComponent } from './navigation-item/navigation-item.component';
 import { NavigationCollapsableComponent } from './navigation-collapsable/navigation-collapsable.component';
 import { NavigationGroupComponent } from './navigation-group/navigation-group.component';
 import { NavigationTabsComponent } from './navigation-tabs/navigation-tabs.component';
-import { NavLinks } from './models';
+import { LocalStorageService } from '../../services/localstorage.service';
+import { NavigationMenuService } from './navigation.service';
+import { UtilitiesService } from '../../services/utilities.service';
 
 @Component({
   selector: 'app-navigation-menu',
@@ -25,30 +30,51 @@ import { NavLinks } from './models';
   ]
 })
 export class NavigationMenuComponent implements OnInit {
+  localStorageService = inject(LocalStorageService);
+  navigationMenuService = inject(NavigationMenuService);
   utilitiesService = inject(UtilitiesService);
+  cdr = inject(ChangeDetectorRef);
+  mediaMatcher = inject(MediaMatcher);
 
   navItems!: NavigationItem[];
   navItemType = NavItemType;
   menuStatus!: number;
+  isMobileView = false;
 
-  get savedMenuStatus(): string | null {
-    const menuStatus = this.utilitiesService.getLocalStorageItem('menu-status');
-    if (menuStatus !== null) {
-      return menuStatus;
-    } else {
-      return null;
-    }
+  /**
+   * Retrieves the saved menu status from local storage or returns the default value if not found.
+   * @returns {number} The menu status value.
+  */
+
+  get savedMenuStatus(): number {
+    const menuStatu = this.navigationMenuService.getMenuStatus();
+
+    if (menuStatu !== null) return this.utilitiesService.getNumber(menuStatu)
+    else return MenuOpenStatus.Opened;
   }
 
-  get shouldMenuClosed(): boolean | null {
-    if (!this.savedMenuStatus) {
-      return null;
-    }
-    return parseInt(this.savedMenuStatus) === MenuOpenStatus.Closed;
+  /**
+   * Checks whether the menu should be closed based on the saved menu status in local storage.
+   * Use this status to determine whether the menu should be closed on mouse leave.
+   * @returns {boolean | null} Returns `true` if the menu should be closed,
+   * `false` if it should remain open, or `null` if no specific status is found.
+  */
+
+  get shouldMenuClosed(): boolean {
+    return this.savedMenuStatus === MenuOpenStatus.Closed;
   }
+
+  /**
+   * Checks if the menu is currently in a closed state.
+   * @returns {boolean} Returns `true` if the menu is closed, otherwise `false`.
+  */
 
   get isMenuClosed(): boolean {
     return this.menuStatus === MenuOpenStatus.Closed;
+  }
+
+  constructor() {
+    this.subscribeToMenuStatusChanges();
   }
 
   ngOnInit(): void {
@@ -57,15 +83,15 @@ export class NavigationMenuComponent implements OnInit {
   }
 
   getNavigationLinks(): void {
-    this.navItems = NavLinks;
+    this.navItems = this.navigationMenuService.getNavigationLinks();
   }
 
   setInitilaMenuStatus(): void {
-    this.menuStatus = this.savedMenuStatus ? parseInt(this.savedMenuStatus) : MenuOpenStatus.Open;
+    this.menuStatus = this.savedMenuStatus;
   }
 
   openMenu(): void {
-    this.menuStatus = MenuOpenStatus.Open;
+    this.menuStatus = MenuOpenStatus.Opened;
   }
 
   closeMenu(): void {
@@ -73,12 +99,32 @@ export class NavigationMenuComponent implements OnInit {
   }
 
   changeMenuStatus(): void {
-    (this.savedMenuStatus && (parseInt(this.savedMenuStatus) === MenuOpenStatus.Closed)) ? this.openMenu() : this.closeMenu();
-    this.saveMenuStatus();
+    (this.savedMenuStatus === MenuOpenStatus.Closed) ? this.openMenu() : this.closeMenu();
+    this.navigationMenuService.setMenuStatus(this.menuStatus);
   }
 
-  saveMenuStatus(): void {
-    this.utilitiesService.setLocalStorageItem('menu-status', this.menuStatus.toString());
+  /**
+   * Handles actions to be taken when the menu status changes from another component.
+  */
+
+  subscribeToMenuStatusChanges() {
+    const mediaQueryList = this.mediaMatcher.matchMedia('(min-width: 1px) and (max-width: 1024px)');
+    if (mediaQueryList.matches) this.navigationMenuService.setMenuStatus(0); //to prevent menu from opening in case of initial value is 1 
+
+    this.navigationMenuService.menuStatus$
+      .pipe(
+        takeUntilDestroyed(),
+        filter(val => val !== null && mediaQueryList.matches),
+      )
+      .subscribe(val => {
+        if (val === MenuOpenStatus.Opened.toString()) {
+          this.isMobileView = true;
+        } else if (val === MenuOpenStatus.Closed.toString()) {
+          this.closeMenu();
+          this.isMobileView = false;
+        }
+        this.cdr.markForCheck();
+      });
   }
 
 }

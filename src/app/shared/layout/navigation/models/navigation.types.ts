@@ -34,6 +34,6 @@ export enum LinkTargetType {
 }
 
 export enum MenuOpenStatus {
-    Open = 1,
+    Opened = 1,
     Closed = 0
 }

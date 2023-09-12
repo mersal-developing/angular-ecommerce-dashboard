@@ -39,3 +39,9 @@
   }
 
 }
+
+.nav-menu__mobile {
+  transition: all 0.5s ease-in-out;
+
+  @apply absolute top-0 left-0 flex z-50;
+}
