@@ -1,4 +1,4 @@
-import { Injectable,inject } from "@angular/core";
+import { Injectable, inject } from "@angular/core";
 import {
     HttpEvent,
     HttpInterceptor,
@@ -17,6 +17,11 @@ export class ApiInterceptor implements HttpInterceptor {
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
         const apiReq = req.clone({ url: `${this.serverUrl}/${req.url}` });
+
+        if (req.url.includes('/assets/')) {
+            return next.handle(req);
+        }
+
         return next.handle(apiReq);
     }
 }

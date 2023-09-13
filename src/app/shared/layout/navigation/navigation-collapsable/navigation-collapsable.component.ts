@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavigationItemComponent } from '../navigation-item/navigation-item.component';
 import { NavigationTabsComponent } from "../navigation-tabs/navigation-tabs.component";
-import { NavigationItem, NavItemType } from 'src/app/shared/layout/navigation/models/navigation.types';
+import { NavigationItem, NavItemType } from 'src/app/shared/models';
 
 @Component({
     selector: 'app-navigation-collapsable',

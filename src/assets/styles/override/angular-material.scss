@@ -19,3 +19,9 @@
         display: none !important;
     }
 }
+
+.rtl {
+    .material-icons {
+        direction: rtl;
+    }
+}

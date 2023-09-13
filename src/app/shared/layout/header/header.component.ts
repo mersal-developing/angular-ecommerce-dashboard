@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
-import { MenuOpenStatus } from '../navigation/models';
 import { NavigationMenuService } from '../navigation/navigation.service';
 import { UtilitiesService } from '../../services/utilities.service';
 import { UserProfileDropdownComponent } from "../../components/user-profile-dropdown/user-profile-dropdown.component";
+import { LanguageButtonComponent } from "../../components/language-button/language-button.component";
+import { MenuOpenStatus } from '../../models';
 
 @Component({
     selector: 'app-header',
@@ -14,7 +15,7 @@ import { UserProfileDropdownComponent } from "../../components/user-profile-drop
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [CommonModule, MatIconModule, MatButtonModule, UserProfileDropdownComponent]
+    imports: [CommonModule, MatIconModule, MatButtonModule, UserProfileDropdownComponent, LanguageButtonComponent]
 })
 export class HeaderComponent {
   router = inject(Router);

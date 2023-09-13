@@ -1,0 +1,18 @@
+<button mat-button [matMenuTriggerFor]="menu"
+    class="mt-1 text-base font-bold !text-custom-grey cursor-pointer !h-6 !w-10 custom-shadow ltr:mr-4">
+    {{currentLanguage | async | uppercase}}
+</button>
+
+<mat-menu #menu="matMenu" class="!rounded-lg w-[150px]">
+    <ng-container *ngFor="let lang of languages">
+        <button mat-menu-item (click)="switchLang(lang)" class=" items-center justify-center">
+            <ng-container *ngIf="lang === (currentLanguage | async)">
+                <mat-icon fontIcon="done" class="!w-[17px] !h-[17px] text-[20px]"></mat-icon>
+            </ng-container>
+            <ng-container *ngIf="lang !== (currentLanguage | async)">
+                <span  class="w-[33px] inline-block"></span>
+            </ng-container>
+            <span class="inline-block">{{lang | language}}</span>
+        </button>
+    </ng-container>
+</mat-menu>

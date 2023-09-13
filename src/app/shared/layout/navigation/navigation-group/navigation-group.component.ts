@@ -4,7 +4,8 @@ import { NavigationItemComponent } from '../navigation-item/navigation-item.comp
 import { NavigationCollapsableComponent } from "../navigation-collapsable/navigation-collapsable.component";
 import { NavigationTabsComponent } from "../navigation-tabs/navigation-tabs.component";
 import { MatIconModule } from '@angular/material/icon';
-import { NavigationItem, NavItemType } from 'src/app/shared/layout/navigation/models/navigation.types';
+import { NavigationItem, NavItemType } from 'src/app/shared/models';
+import { TranslateModule } from '@ngx-translate/core';    
 
 @Component({
   selector: 'app-navigation-group',
@@ -17,7 +18,8 @@ import { NavigationItem, NavItemType } from 'src/app/shared/layout/navigation/mo
     NavigationItemComponent,
     NavigationCollapsableComponent,
     NavigationTabsComponent,
-    MatIconModule
+    MatIconModule,
+    TranslateModule
   ]
 })
 export class NavigationGroupComponent {

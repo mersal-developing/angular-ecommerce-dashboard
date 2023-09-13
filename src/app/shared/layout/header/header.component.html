@@ -1,5 +1,5 @@
 <div
-    class="header-container relative flex  items-center w-full h-16 px-4 md:px-6 z-49 shadow justify-between lg:justify-end bg-white">
+    class="header-container relative flex items-center w-full h-16 px-4 md:px-6 z-49 shadow justify-between lg:justify-end bg-white">
 
     <button mat-icon-button (click)="toggleMenu()" class="lg:!hidden">
         <mat-icon fontIcon="menu" class="text-custom-grey cursor-pointer">
@@ -7,16 +7,14 @@
     </button>
 
     <div class="permenant-buttons flex  items-center">
-        <button mat-icon-button class="!p-0 !h-6 mr-3" (click)="navigateHome()">
+        <button mat-icon-button class="!p-0 !h-6 mr-1" (click)="navigateHome()">
             <mat-icon fontIcon="home" class="home-icon"></mat-icon>
         </button>
-    
-        <button mat-button class="mt-1 text-base text-bold !text-custom-grey cursor-pointer !h-6 custom-shadow mr-5">
-            {{'En'}}
-        </button>
-    
+
+        <app-language-button></app-language-button>
+
         <app-user-profile-dropdown class="!p-0 !h-6"></app-user-profile-dropdown>
-    
+
     </div>
 
 

@@ -1,6 +1,6 @@
 export interface NavigationItem {
     id?: string;
-    title?: string;
+    title: string;
     url?: string;
     target?: LinkTargetType | string;
     externalUrl?: boolean;
@@ -17,14 +17,12 @@ export interface NavigationItem {
     type?: string | NavItemType;
 }
 
-
 export enum NavItemType {
     Item = 'item',
     Collapsable = 'collapsable',
     Tabs = 'tabs',
     Group = 'group',
 }
-
 
 export enum LinkTargetType {
     Blank = '_blank',

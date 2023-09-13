@@ -43,7 +43,7 @@
 
 <ng-template #itemContent let-item="item">
     <ng-container *ngIf="item.icon">
-        <mat-icon [fontIcon]="item.icon" class="text-white text-base mr-1"></mat-icon>
+        <mat-icon [fontIcon]="item.icon" class="text-white text-base ltr:mr-1"></mat-icon>
     </ng-container>
     <span class="text-white text-base nav-fold">{{item.title}}</span>
     <ng-container *ngIf="item.badge">

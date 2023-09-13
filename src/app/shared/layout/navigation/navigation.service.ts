@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
-import { LocalStorageService } from '../../services/localstorage.service';
-import { MenuOpenStatus, NavLinks, NavigationItem } from './models';
+import { LocalStorageService } from "src/app/shared/services";
+import { NavLinks, NavigationItem } from '../../models';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({

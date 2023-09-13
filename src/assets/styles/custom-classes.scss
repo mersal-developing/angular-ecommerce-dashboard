@@ -45,3 +45,32 @@
 
   @apply absolute top-0 left-0 flex z-50;
 }
+
+
+.rtl {
+  direction: rtl;
+
+  .nav-menu-collapsed {
+    mat-icon {
+      margin-right: 0.5rem;
+      margin-left: 0;
+    }
+
+    .nav-collapse {
+      &> :first-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .nav-collapse {
+
+    &> :first-child {
+      margin-right: 20px;
+    }
+  }
+}
+
+.ltr {
+  direction: ltr;
+}

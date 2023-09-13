@@ -1,5 +1,5 @@
 export const environment = {
     production: false,
     appName: "shop-dashboard",
-    serverUrl: "https://api.realworld.io"
+    serverUrl: "http://localhost:4200"
 };

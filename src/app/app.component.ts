@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { MainLayoutComponent } from "./shared/layout/main-layout/main-layout.component";
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-root',
@@ -11,5 +12,10 @@ import { MainLayoutComponent } from "./shared/layout/main-layout/main-layout.com
     imports: [CommonModule, RouterOutlet, MainLayoutComponent]
 })
 export class AppComponent {
-  title = 'shop-dashboard';
+  translate = inject(TranslateService);
+
+  constructor() {
+    this.translate.addLangs(['en', 'ar']);
+    this.translate.setDefaultLang('en');
+  }
 }

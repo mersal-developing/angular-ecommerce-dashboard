@@ -2,13 +2,18 @@ import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { ApiInterceptor } from './core/interceptors/api.interceptor';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
 import { BACKEND_URL, backendUrlFactory } from './core/config/backend-url.factory';
 import { BackendUrlService } from './core/services/backend-url.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { createTranslateLoader } from './core/config/translation.factory';
+
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -22,8 +27,15 @@ export const appConfig: ApplicationConfig = {
       useFactory: backendUrlFactory,
       deps: [BackendUrlService],
     },
-    importProvidersFrom([BrowserAnimationsModule])
-  ],
-
-
+    importProvidersFrom([BrowserAnimationsModule]),
+    importProvidersFrom(HttpClientModule),
+    importProvidersFrom(TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      }
+    })
+    )
+  ]
 };

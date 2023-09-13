@@ -5,14 +5,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { filter, skip } from 'rxjs';
 
-import { NavigationItem, NavItemType, MenuOpenStatus } from 'src/app/shared/layout/navigation/models/navigation.types';
 import { NavigationItemComponent } from './navigation-item/navigation-item.component';
 import { NavigationCollapsableComponent } from './navigation-collapsable/navigation-collapsable.component';
 import { NavigationGroupComponent } from './navigation-group/navigation-group.component';
 import { NavigationTabsComponent } from './navigation-tabs/navigation-tabs.component';
-import { LocalStorageService } from '../../services/localstorage.service';
+import { LocalStorageService } from "src/app/shared/services";
 import { NavigationMenuService } from './navigation.service';
 import { UtilitiesService } from '../../services/utilities.service';
+import { MenuOpenStatus, NavItemType, NavigationItem } from '../../models';
 
 @Component({
   selector: 'app-navigation-menu',
