@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { NavigationItemComponent } from '../navigation-item/navigation-item.component';
 import { NavigationTabsComponent } from "../navigation-tabs/navigation-tabs.component";
 import { NavigationItem, NavItemType } from 'src/app/shared/models';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-navigation-collapsable',
@@ -11,7 +12,7 @@ import { NavigationItem, NavItemType } from 'src/app/shared/models';
     templateUrl: './navigation-collapsable.component.html',
     styleUrls: ['./navigation-collapsable.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [CommonModule, NavigationItemComponent, MatIconModule, NavigationTabsComponent]
+    imports: [CommonModule, NavigationItemComponent, MatIconModule, NavigationTabsComponent, TranslateModule]
 })
 export class NavigationCollapsableComponent {
   @Input({ required: true }) item!: NavigationItem;

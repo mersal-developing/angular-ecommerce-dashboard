@@ -4,6 +4,7 @@ import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
 import { DOCUMENT } from "@angular/common";
 import { LocalStorageService } from './localstorage.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class TranslationService {
   translate = inject(TranslateService);
   document = inject(DOCUMENT);
   localStorage = inject(LocalStorageService);
+  router = inject(Router);
 
   private language$ = new BehaviorSubject<string>(this.defaultLanguage);
   public currentLangObservable = this.language$.asObservable()
@@ -21,9 +23,15 @@ export class TranslationService {
     else return this.translate.getDefaultLang()
   }
 
+  get isRtl(): boolean {
+    return this.language$.value === 'ar';
+  }
+
+  get isLtr(): boolean {
+    return this.language$.value === 'en';
+  }
+
   constructor() {
-    this.checkForLanguageChange();
-    this.saveLanguageToStorage();
     this.setInitialLanguage();
     this.setPageDirection();
   }
@@ -32,40 +40,23 @@ export class TranslationService {
     this.translate.use(this.defaultLanguage);
   }
 
-  checkForLanguageChange(): void {
-    this.translate.onLangChange
-      .pipe(takeUntilDestroyed())
-      .subscribe((val: LangChangeEvent) => {
-        this.language$.next(val.lang);
-        this.saveLanguageToStorage();
-        this.setPageDirection();
-      })
-  }
-
   getAllLanguages(): string[] {
     return this.translate.getLangs();
   }
 
   changeLanguage(lang: string): void {
-    this.translate.use(lang);
     this.language$.next(lang);
+    this.saveLanguageToStorage();
+    this.reloadPage();
   }
 
   getPageDirection(): string {
-    return this.language$.value === 'ar' ? 'rtl' : 'ltr';
-  }
-
-  isRtl(): boolean {
-    return this.language$.value === 'ar';
-  }
-
-  isLtr(): boolean {
-    return this.language$.value === 'en';
+    return this.isRtl ? 'rtl' : 'ltr';
   }
 
   setPageDirection(): void {
     const dirClass = this.getPageDirection();
-    const removedClass = this.language$.value === 'ar' ? 'ltr' : 'rtl';
+    const removedClass = this.isRtl ? 'ltr' : 'rtl';
 
     this.document.documentElement.classList.remove(removedClass);
     this.document.documentElement.classList.add(dirClass);
@@ -75,6 +66,14 @@ export class TranslationService {
 
   saveLanguageToStorage(): void {
     this.localStorage.setValue('lang', this.language$.value);
+  }
+
+  reloadPage() {
+    this.router.navigate([], {
+      queryParamsHandling: 'merge'
+    });
+
+    setTimeout(() => location.reload())
   }
 
 }

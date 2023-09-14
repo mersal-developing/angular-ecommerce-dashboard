@@ -25,7 +25,7 @@ export const NavLinks: NavigationItem[] = [
                 children: [
                     {
                         id: 'orderSubNav',
-                        title: 'Orders2222',
+                        title: 'Orders',
                         type: 'item',
                         icon: 'local_mall',
                         //  url: '/orders',

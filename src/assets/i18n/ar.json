@@ -1,4 +1,10 @@
 {
     "COMMERCE": "تجارة",
-    "Products Insights":"تحليل المنتجات"
+    "Products Insights":"تحليل المنتجات",
+    "Orders": "الطلبات",
+    "Customer": "الزباين",
+    "List": "القايمة",
+    "Profile": "الملف",
+    "Sign Out": "تسجيل الخروج",
+    "Signed in as": "تسجيل الدخول بإسم"
 }

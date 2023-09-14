@@ -1,4 +1,10 @@
 {
-    "COMMERCE": "commerce",
-    "Products Insights":"Products Insights"
+  "COMMERCE": "COMMERCE",
+  "Products Insights": "Products Insights",
+  "Orders": "Orders",
+  "Customer": "Customer",
+  "List": "List", 
+  "Profile": "Profile",
+  "Sign Out": "Sign Out",
+  "Signed in as": "Signed in as"
 }

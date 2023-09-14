@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { NavigationItemComponent } from "../navigation-item/navigation-item.component";
 import { NavigationCollapsableComponent } from "../navigation-collapsable/navigation-collapsable.component";
 import { NavItemType, NavigationItem } from 'src/app/shared/models';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navigation-tabs',
@@ -17,6 +18,7 @@ import { NavItemType, NavigationItem } from 'src/app/shared/models';
     MatTabsModule,
     MatIconModule,
     NavigationItemComponent,
+    TranslateModule,
     forwardRef(() => NavigationCollapsableComponent)
   ]
 })

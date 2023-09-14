@@ -5,7 +5,7 @@
                 <ng-container *ngIf="item.icon">
                     <mat-icon [fontIcon]="item.icon" class="ltr:mr-1 rtl:ml-1 text-white text-base"></mat-icon>
                 </ng-container>
-                <span class="text-white text-base nav-fold">{{item.title}}</span>
+                <span class="text-white text-base nav-fold">{{item.title | translate}}</span>
             </div>
             <mat-icon fontIcon="keyboard_arrow_right" class="text-white nav-fold rtl:hidden"></mat-icon>
             <mat-icon fontIcon="keyboard_arrow_left" class="text-white nav-fold ltr:hidden"></mat-icon>
@@ -18,7 +18,7 @@
                 <div class="flex justify-start items-center cursor-pointer tab-back-button" (click)="closeTab()">
                     <mat-icon fontIcon="keyboard_arrow_right" class="text-white ltr:hidden"></mat-icon>
                     <mat-icon fontIcon="keyboard_arrow_left" class="text-white rtl:hidden"></mat-icon>
-                    <span class="text-secondary-300 text-base nav-fold">{{item.title}}</span>
+                    <span class="text-secondary-300 text-base nav-fold">{{item.title | translate}}</span>
                 </div>
 
                 <ng-container *ngFor="let child of item.children">

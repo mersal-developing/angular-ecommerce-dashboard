@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { NavigationItem, LinkTargetType } from 'src/app/shared/models';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navigation-item',
   standalone: true,
-  imports: [CommonModule, MatIconModule, RouterModule],
+  imports: [CommonModule, MatIconModule, RouterModule, TranslateModule],
   templateUrl: './navigation-item.component.html',
   styleUrls: ['./navigation-item.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
