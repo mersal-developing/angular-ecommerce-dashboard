@@ -1,0 +1,25 @@
+:host {
+    
+    ::ng-deep {
+        .breadcrumb-name {
+            @apply text-3xl font-medium tracking-tight leading-none font-montserrat;
+        }
+
+        .breadcrumb-info {
+            @apply mt-0.5 text-custom-grey text-sm font-montserrat;
+        }
+
+        .breadcrumb-action-buttons {
+            button {
+                background-color: theme('colors.primary.600') !important;
+                color: #fff !important;
+                padding-left: 2rem !important;
+                padding-right: 2rem !important;
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+                height: 2.5rem !important;
+                border-radius: 9999px !important;
+            }
+        }
+    }
+}

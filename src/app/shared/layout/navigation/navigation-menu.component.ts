@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MatIconModule } from '@angular/material/icon';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { filter, skip } from 'rxjs';
+import { filter } from 'rxjs';
 
 import { NavigationItemComponent } from './navigation-item/navigation-item.component';
 import { NavigationCollapsableComponent } from './navigation-collapsable/navigation-collapsable.component';
@@ -13,6 +13,7 @@ import { LocalStorageService } from "src/app/shared/services";
 import { NavigationMenuService } from './navigation.service';
 import { UtilitiesService } from '../../services/utilities.service';
 import { MenuOpenStatus, NavItemType, NavigationItem } from '../../models';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-navigation-menu',
@@ -26,7 +27,8 @@ import { MenuOpenStatus, NavItemType, NavigationItem } from '../../models';
     NavigationCollapsableComponent,
     NavigationGroupComponent,
     NavigationTabsComponent,
-    MatIconModule
+    MatIconModule,
+    RouterLink
   ]
 })
 export class NavigationMenuComponent implements OnInit {

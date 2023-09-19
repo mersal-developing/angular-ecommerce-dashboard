@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
 import { MainLayoutComponent } from "./shared/layout/main-layout/main-layout.component";
 import { TranslateService } from '@ngx-translate/core';
 
@@ -9,7 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
     standalone: true,
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    imports: [CommonModule, RouterOutlet, MainLayoutComponent]
+    imports: [CommonModule, MainLayoutComponent]
 })
 export class AppComponent {
   translate = inject(TranslateService);
