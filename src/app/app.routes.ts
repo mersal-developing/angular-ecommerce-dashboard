@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { DashboardComponent } from './modules/dashboard/dashboard.component';
+import { DashboardRoutes } from './shared/models';
 
 export const routes: Routes = [
     {
@@ -8,23 +8,23 @@ export const routes: Routes = [
         pathMatch: 'full'
     },
     {
-        path: 'dashboard',
+        path: DashboardRoutes.Dashboard,
         loadComponent: () => import('./modules/dashboard/dashboard.component').then((c) => c.DashboardComponent)
     },
     {
-        path: 'products',
+        path: DashboardRoutes.Products,
         loadComponent: () => import('./modules/products/products.component').then((c) => c.ProductsComponent)
     },
     {
-        path: 'media',
+        path: DashboardRoutes.Media,
         loadComponent: () => import('./modules/media/media.component').then((c) => c.MediaComponent)
     },
     {
-        path: 'customers',
+        path: DashboardRoutes.Customers,
         loadComponent: () => import('./modules/customers/customers.component').then((c) => c.CustomersComponent)
     },
     {
-        path: 'orders',
+        path: DashboardRoutes.Orders,
         loadComponent: () => import('./modules/orders/orders.component').then((c) => c.OrdersComponent)
     },
 ];
