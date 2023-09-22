@@ -8,6 +8,6 @@ export class BackendUrlService {
 
   generateBackendUrl(): string {
     const baseUrl = environment.production ? this.document.location.origin : environment.serverUrl;
-    return `${baseUrl}/api`;
+    return `${baseUrl}`;
   }
 }

@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { DashboardRoutes } from './shared/models';
+import { DashboardRoutes } from 'src/app/models';
 
 export const routes: Routes = [
     {
@@ -9,22 +9,27 @@ export const routes: Routes = [
     },
     {
         path: DashboardRoutes.Dashboard,
-        loadComponent: () => import('./modules/dashboard/dashboard.component').then((c) => c.DashboardComponent)
+        loadComponent: () => import('./modules/dashboard/dashboard.component').then((c) => c.DashboardComponent),
+        title: 'DashBoard'
     },
     {
         path: DashboardRoutes.Products,
-        loadComponent: () => import('./modules/products/products.component').then((c) => c.ProductsComponent)
+        loadComponent: () => import('./modules/products/products.component').then((c) => c.ProductsComponent),
+        title: 'Products'
     },
     {
         path: DashboardRoutes.Media,
-        loadComponent: () => import('./modules/media/media.component').then((c) => c.MediaComponent)
+        loadComponent: () => import('./modules/media/media.component').then((c) => c.MediaComponent),
+        title: 'Media'
     },
     {
         path: DashboardRoutes.Customers,
-        loadComponent: () => import('./modules/customers/customers.component').then((c) => c.CustomersComponent)
+        loadComponent: () => import('./modules/customers/customers.component').then((c) => c.CustomersComponent),
+        title: 'Customers'
     },
     {
         path: DashboardRoutes.Orders,
-        loadComponent: () => import('./modules/orders/orders.component').then((c) => c.OrdersComponent)
+        loadComponent: () => import('./modules/orders/orders.component').then((c) => c.OrdersComponent),
+        title: 'Orders'
     },
 ];

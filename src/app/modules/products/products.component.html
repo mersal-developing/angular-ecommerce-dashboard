@@ -1,7 +1,12 @@
 <app-breadcrumbs>
-    
+
     <div class="breadcrumb-name">
         {{'Products' | translate}}
     </div>
 
 </app-breadcrumbs>
+
+
+<ng-container *ngIf="products | async as product">
+  <app-table [tableData]="product" [tableCols]="['id', 'name', 'category']"></app-table>
+</ng-container>

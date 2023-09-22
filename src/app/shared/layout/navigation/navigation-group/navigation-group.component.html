@@ -1,7 +1,7 @@
 <ng-container *ngIf="!item.hidden">
     <div class="nav-group">
         <span class="mb-2 mt-2 text-sm font-bold w-full inline-block text-white nav-fold">
-            {{item.title | translate}}
+            {{item.title | translate | uppercase}}
         </span>
         <span class="text-sm  text-white nav-group-title-placeholder"></span>
         <ng-container *ngFor="let child of item.children">

@@ -10,7 +10,6 @@ import { BACKEND_URL, backendUrlFactory } from './core/config/backend-url.factor
 import { BackendUrlService } from './core/services/backend-url.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { createTranslateLoader } from './core/config/translation.factory';
 
 
