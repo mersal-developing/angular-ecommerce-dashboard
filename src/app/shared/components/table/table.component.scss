@@ -1,1 +1,8 @@
-    
+:host {
+    ::ng-deep {
+        thead {
+            background-color: #393939 !important;
+        }
+    }
+
+}

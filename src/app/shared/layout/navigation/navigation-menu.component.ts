@@ -10,7 +10,7 @@ import { NavigationCollapsableComponent } from './navigation-collapsable/navigat
 import { NavigationGroupComponent } from './navigation-group/navigation-group.component';
 import { NavigationTabsComponent } from './navigation-tabs/navigation-tabs.component';
 import { LocalStorageService } from "src/app/shared/services";
-import { NavigationMenuService } from './navigation.service';
+import { NavigationMenuService } from '../../services/navigation.service';
 import { UtilitiesService } from '../../services/utilities.service';
 import { MenuOpenStatus, NavItemType, NavigationItem } from '../../models';
 import { RouterLink } from '@angular/router';

@@ -6,6 +6,8 @@ import { ApiService } from 'src/app/shared/services';
 import { API_URLS, Product } from 'src/app/models';
 import { Observable } from 'rxjs';
 import { TableComponent } from 'src/app/shared/components/table/table.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-products',
@@ -14,7 +16,9 @@ import { TableComponent } from 'src/app/shared/components/table/table.component'
     CommonModule,
     BreadcrumbsComponent,
     TranslateModule,
-    TableComponent
+    TableComponent,
+    MatIconModule,
+    MatButtonModule
   ],
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],

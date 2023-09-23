@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
-import { NavigationMenuService } from '../navigation/navigation.service';
+import { NavigationMenuService } from '../../services/navigation.service';
 import { UtilitiesService } from '../../services/utilities.service';
 import { UserProfileDropdownComponent } from "../../components/user-profile-dropdown/user-profile-dropdown.component";
 import { LanguageButtonComponent } from "../../components/language-button/language-button.component";

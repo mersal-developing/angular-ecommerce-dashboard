@@ -1,12 +1,20 @@
 <app-breadcrumbs>
 
-    <div class="breadcrumb-name">
-        {{'Products' | translate}}
-    </div>
+  <div class="breadcrumb-name">
+    {{'Products' | translate}}
+  </div>
+
+  <div class="breadcrumb-action-buttons">
+    <button mat-flat-button>
+      <mat-icon fontIcon="add"></mat-icon>
+      <span class="inline-block text-base">{{'Add Product' | translate}}</span>
+    </button>
+  </div>
 
 </app-breadcrumbs>
 
 
 <ng-container *ngIf="products | async as product">
-  <app-table [tableData]="product" [tableCols]="['id', 'name', 'category']"></app-table>
+  <app-table [tableData]="product" [tableCols]="['id', 'image','name', 'category', 'quantity', 'price', 'active']">
+  </app-table>
 </ng-container>

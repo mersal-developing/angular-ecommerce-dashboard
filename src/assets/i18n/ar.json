@@ -15,5 +15,14 @@
     "folders": "مجلدات",
     "file": "ملف",
     "files": "ملفات",
-    "Customers": "العملاء"
+    "Customers": "العملاء",
+    "image": "الصورة",
+    "name": "الأسم",
+    "category": "الفئة",
+    "quantity": "الكمية",
+    "active": "مفعل",
+    "id": "رقم التعريف", 
+    "Add Product": "اضف منتج",
+    "price": "السعر",
+    "of": "من"
 }

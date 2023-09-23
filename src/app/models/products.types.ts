@@ -5,5 +5,5 @@ export interface Product {
     category: string;
     quantity: number;
     price: number;
-    isAvailable: boolean;
+    active: boolean;
 }

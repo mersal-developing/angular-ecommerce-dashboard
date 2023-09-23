@@ -3,6 +3,8 @@
         transition: all 0.5s ease-in-out;
         @apply flex-col w-72 overflow-y-auto h-screen bg-primary-500 p-4;
 
+        scrollbar-width: thin;
+
         &::-webkit-scrollbar {
             width: 10px;
             height: 20px;
@@ -32,6 +34,6 @@
     .nav-menu__mobile {
         transition: all 0.5s ease-in-out;
 
-        @apply absolute top-0 left-0 flex z-50;
+        @apply absolute top-0 left-0 flex z-[100];
     }
 }
