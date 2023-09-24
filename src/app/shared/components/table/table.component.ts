@@ -5,32 +5,50 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatIconModule } from '@angular/material/icon';
 import { DOCUMENT } from '@angular/common';
+import { ActionButtonsComponent } from "../action-buttons/action-buttons.component";
+import { Action } from '../../models';
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatPaginatorModule, TranslateModule, MatIconModule],
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    CommonModule,
+    MatTableModule,
+    MatPaginatorModule,
+    TranslateModule,
+    MatIconModule,
+    ActionButtonsComponent
+  ]
 })
 export class TableComponent {
   @Input({ required: true }) tableData!: any;
   @Input({ required: true }) tableCols!: string[];
-
-  tableDataSource!: MatTableDataSource<any>;
+  @Input() pageSize: number = 10;
+  @Input() showPageSize: boolean = false;
+  @Input() actions!: Action[];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  tableDataSource!: MatTableDataSource<any>;
+
   document = inject(DOCUMENT);
-  
+
   ngOnInit() {
     this.tableDataSource = new MatTableDataSource(this.tableData);
   }
 
   ngAfterViewInit() {
     this.tableDataSource.paginator = this.paginator;
-    if(this.document.dir === "rtl") this.getArabicPaginatorIntl();
+    if (this.document.dir === "rtl") this.getArabicPaginatorIntl();
   }
+
+
+  /**
+   *   This function is a crucial part of our application's internationalization efforts.
+   *     It is responsible for setting the translation for the Material-UI pagination component.
+  */
 
   getArabicPaginatorIntl() {
     const paginatorIntl = this.paginator._intl;

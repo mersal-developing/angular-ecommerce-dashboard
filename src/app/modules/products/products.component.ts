@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 import { TableComponent } from 'src/app/shared/components/table/table.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { Action } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-products',
@@ -28,7 +29,15 @@ export class ProductsComponent {
   apiServices = inject(ApiService);
   products!: Observable<Product[]>;
   isLoading!: boolean;
-  displayedColumns = ['no','image', 'name',  'category', 'quantity', 'price'];
+  displayedColumns = ['no', 'image', 'name', 'category', 'quantity', 'price'];
+  actions: Action[] = [{
+    name: 'view',
+    icon: 'pageview'
+  },
+  {
+    name: 'edit',
+    icon: 'edit'
+  }]
 
   ngOnInit() {
     this.isLoading = true;

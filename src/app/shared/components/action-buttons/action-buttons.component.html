@@ -1,0 +1,10 @@
+<mat-icon class="action-button" mat-icon-button [matMenuTriggerFor]="menu" class="cursor-pointer">more_vert</mat-icon>
+
+<mat-menu #menu="matMenu">
+    <ng-container *ngFor="let item of actions">
+        <button mat-menu-item>
+            <mat-icon [fontIcon]="item.icon"></mat-icon>
+            <span>{{item.name | titlecase | translate}}</span>
+        </button>
+    </ng-container>
+</mat-menu>
