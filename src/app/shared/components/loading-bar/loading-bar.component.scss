@@ -1,0 +1,18 @@
+:host {
+
+
+    ::ng-deep {
+       
+        .mat-mdc-progress-bar {
+            @apply bg-primary-500;
+        }
+
+        .mdc-linear-progress__bar-inner {
+            @apply border-primary-900;
+
+        }
+
+    }
+
+
+}

@@ -8,7 +8,7 @@ import { MethodType } from '../models';
     providedIn: 'root'
 })
 export class ApiService {
-    http = inject(HttpClient);
+    private http = inject(HttpClient);
 
     request<T>(
         method: MethodType,
@@ -34,7 +34,7 @@ export class ApiService {
         }
     }
 
-    createHttpParamsFromObject(obj: any) {
+    private createHttpParamsFromObject(obj: any) {
         let params = new HttpParams();
 
         for (const key in obj) {

@@ -1,41 +1,41 @@
 <table mat-table [dataSource]="tableDataSource" matSort matSortActive="created" matSortDisableClear
     matSortDirection="desc" class="mat-elevation-z8 w-[97%] !min-w-0 mx-auto mt-4 !border-light-grey">
 
-    <ng-container *ngFor="let row of tableCols; let i = index">
-        <ng-container [matColumnDef]="row">
+    <ng-container *ngFor="let col of tableCols; let i = index">
+        <ng-container [matColumnDef]="col">
             <th mat-header-cell *matHeaderCellDef
                 class="text-white ltr:first:rounded-tl-lg rtl:first:rounded-tr-lg ltr:last:rounded-tr-lg rtl:last:rounded-tl-lg">
-                {{row | translate | titlecase}}
+                {{col | translate | titlecase}}
             </th>
 
             <!-- custom columns -->
-            <ng-container *ngIf="row === 'image'">
+            <ng-container *ngIf="col === 'image'">
                 <td mat-cell *matCellDef="let data">
 
-                    <ng-container *ngIf="data[row]; else defaultImage">
-                        <img [src]="data[row]" class="w-9 h-9">
+                    <ng-container *ngIf="data[col]; else defaultImage">
+                        <img [src]="data[col]" class="w-9 h-9">
                     </ng-container>
                 </td>
             </ng-container>
 
-            <ng-container *ngIf="row === 'active'">
+            <ng-container *ngIf="col === 'active'">
                 <td mat-cell *matCellDef="let data">
 
-                    <ng-container *ngIf="data[row] === true; else notActive">
+                    <ng-container *ngIf="data[col] === true; else notActive">
                         <mat-icon fontIcon="check" class="text-active"></mat-icon>
                     </ng-container>
                 </td>
             </ng-container>
 
 
-            <ng-container *ngIf="row === 'actions'">
+            <ng-container *ngIf="col === 'actions'">
                 <td mat-cell *matCellDef="let data">
-                    <app-action-buttons [actions]="actions" (handleAction)="processAction($event)"></app-action-buttons>
+                    <app-action-buttons [actions]="actions" (handleAction)="processAction($event, data)"></app-action-buttons>
                 </td>
             </ng-container>
 
             <!-- this is the default col data if no custom columns -->
-            <td mat-cell *matCellDef="let data">{{ data[row] }}</td>
+            <td mat-cell *matCellDef="let data">{{ data[col] }}</td>
 
         </ng-container>
 

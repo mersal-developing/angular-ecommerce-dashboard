@@ -7,6 +7,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { DOCUMENT } from '@angular/common';
 import { ActionButtonsComponent } from "../action-buttons/action-buttons.component";
 import { Action } from '../../models';
+import { ApiService } from '../../services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-table',
@@ -29,11 +31,14 @@ export class TableComponent {
   @Input() pageSize: number = 10;
   @Input() hidePageSize: boolean = false;
   @Input() actions!: Action[];
+  @Input() tablePath!: string;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   tableDataSource!: MatTableDataSource<any>;
 
   document = inject(DOCUMENT);
+  apiService = inject(ApiService);
+  router = inject(Router);
 
   ngOnInit() {
     this.tableDataSource = new MatTableDataSource(this.tableData);
@@ -44,8 +49,17 @@ export class TableComponent {
     if (this.document.dir === "rtl") this.getArabicPaginatorIntl();
   }
 
-  processAction(event: string) {
-    console.log(event)
+  processAction(event: string, row: any) {
+    switch (event) {
+      case 'remove':
+        this.apiService.request('DELETE', `${this.tablePath}/${row.id}`).subscribe();
+        break;
+      case 'edit':
+        this.apiService.request('PUT', `${this.tablePath}/${row.id}`, undefined, {name: 'ttttt'}).subscribe();
+        break;
+      case 'view':
+        this.router.navigate([`${this.tablePath}/${row.id}`])
+    }
   }
 
   /**

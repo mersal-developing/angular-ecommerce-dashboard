@@ -1,0 +1,4 @@
+<ng-container *ngIf="show$ | async">
+    <mat-progress-bar class="!fixed top-0 left-0 z-[1000]" [mode]="(mode$ | async) ?? defaultMode"></mat-progress-bar>
+</ng-container>
+

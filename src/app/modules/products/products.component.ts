@@ -45,10 +45,13 @@ export class ProductsComponent {
 
   ngOnInit() {
     this.isLoading = true;
-    this.products = this.apiServices.request<Product[]>('GET', API_URLS.Products, {
-      _page: 1,
-      _limit: 10
-    })
+    this.products = this.apiServices.request<Product[]>(
+      'GET',
+      API_URLS.Products,
+      {
+        _page: 1,
+        _limit: 10
+      })
   }
 
 }
