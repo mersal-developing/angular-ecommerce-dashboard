@@ -9,11 +9,11 @@ import { NavigationItemComponent } from './navigation-item/navigation-item.compo
 import { NavigationCollapsableComponent } from './navigation-collapsable/navigation-collapsable.component';
 import { NavigationGroupComponent } from './navigation-group/navigation-group.component';
 import { NavigationTabsComponent } from './navigation-tabs/navigation-tabs.component';
-import { LocalStorageService } from "src/app/shared/services";
-import { NavigationMenuService } from '../../services/navigation.service';
-import { UtilitiesService } from '../../services/utilities.service';
-import { MenuOpenStatus, NavItemType, NavigationItem } from '../../models';
+import { LocalStorageService, UtilitiesService } from "src/app/shared/services";
+
 import { RouterLink } from '@angular/router';
+import { NavigationMenuService } from 'src/app/layout/service';
+import { NavigationItem, NavItemType, MenuOpenStatus } from '../models';
 
 @Component({
   selector: 'app-navigation-menu',

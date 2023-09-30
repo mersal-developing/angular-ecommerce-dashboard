@@ -37,6 +37,10 @@ export class ProductsComponent {
   {
     name: 'edit',
     icon: 'edit'
+  },
+  {
+    name: 'remove',
+    icon: 'close'
   }]
 
   ngOnInit() {

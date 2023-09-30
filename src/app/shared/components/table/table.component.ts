@@ -27,7 +27,7 @@ export class TableComponent {
   @Input({ required: true }) tableData!: any;
   @Input({ required: true }) tableCols!: string[];
   @Input() pageSize: number = 10;
-  @Input() showPageSize: boolean = false;
+  @Input() hidePageSize: boolean = false;
   @Input() actions!: Action[];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -44,6 +44,9 @@ export class TableComponent {
     if (this.document.dir === "rtl") this.getArabicPaginatorIntl();
   }
 
+  processAction(event: string) {
+    console.log(event)
+  }
 
   /**
    *   This function is a crucial part of our application's internationalization efforts.

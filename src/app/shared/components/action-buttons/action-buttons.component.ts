@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
@@ -15,5 +15,11 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class ActionButtonsComponent {
   @Input() actions!: Action[];
-  
-}
+  @Output() handleAction = new EventEmitter<string>();
+
+
+  emitAction(actionName: string) {
+    this.handleAction.emit(actionName)
+  }
+
+} 

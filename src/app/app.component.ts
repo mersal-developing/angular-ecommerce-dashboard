@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MainLayoutComponent } from "./shared/layout/main-layout/main-layout.component";
 import { TranslateService } from '@ngx-translate/core';
+import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 
 @Component({
     selector: 'app-root',

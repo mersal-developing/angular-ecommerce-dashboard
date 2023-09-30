@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavigationMenuComponent } from "../navigation/navigation-menu.component";
 import { HeaderComponent } from "../header/header.component";
 import { RouterOutlet } from '@angular/router';
+import { NavigationMenuComponent } from '../navigation-menu/navigation-menu.component';
 
 @Component({
     selector: 'app-main-layout',

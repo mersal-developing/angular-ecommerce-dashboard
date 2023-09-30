@@ -1,7 +1,8 @@
 import { Injectable, inject } from '@angular/core';
 import { LocalStorageService } from "src/app/shared/services";
-import { NavLinks, NavigationItem } from '../models';
+import { NavLinks,  } from '../../shared/models';
 import { BehaviorSubject } from 'rxjs';
+import { NavigationItem } from '../models';
 
 @Injectable({
     providedIn: 'root'
