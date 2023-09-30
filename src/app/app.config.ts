@@ -7,13 +7,10 @@ import { ApiInterceptor } from './core/interceptors/api.interceptor';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
 import { BACKEND_URL, backendUrlFactory } from './core/config/backend-url.factory';
-import { BackendUrlService } from './core/services/backend-url.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from './core/config/translation.factory';
-import { MatPaginatorIntl } from '@angular/material/paginator';
-import { getArabicPaginatorIntl } from './shared/models';
-
+import { BackendUrlService } from './core/services';
 
 
 export const appConfig: ApplicationConfig = {
