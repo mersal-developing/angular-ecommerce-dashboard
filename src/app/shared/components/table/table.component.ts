@@ -6,9 +6,9 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MatIconModule } from '@angular/material/icon';
 import { DOCUMENT } from '@angular/common';
 import { ActionButtonsComponent } from "../action-buttons/action-buttons.component";
-import { Action } from '../../models';
 import { ApiService } from '../../services';
 import { Router } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-table',
@@ -22,7 +22,8 @@ import { Router } from '@angular/router';
     MatPaginatorModule,
     TranslateModule,
     MatIconModule,
-    ActionButtonsComponent
+    ActionButtonsComponent,
+    NgOptimizedImage
   ]
 })
 export class TableComponent {
@@ -30,7 +31,7 @@ export class TableComponent {
   @Input({ required: true }) tableCols!: string[];
   @Input() pageSize: number = 10;
   @Input() hidePageSize: boolean = false;
-  @Input() actions!: Action[];
+  @Input() actions!: string[];
   @Input() tablePath!: string;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

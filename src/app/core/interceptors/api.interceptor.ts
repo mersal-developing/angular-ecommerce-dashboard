@@ -23,7 +23,11 @@ export class ApiInterceptor implements HttpInterceptor {
         this.loadingBarService.show();
 
         if (req.url.includes('/assets/')) {
-            return next.handle(req)
+            return next.handle(req).pipe(
+                finalize(() => {
+                    this.loadingBarService.hide();
+                })
+            );
         }
 
         return next.handle(apiReq).pipe(

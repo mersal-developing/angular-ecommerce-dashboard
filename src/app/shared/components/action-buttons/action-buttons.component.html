@@ -2,9 +2,12 @@
 
 <mat-menu #menu="matMenu">
     <ng-container *ngFor="let action of actions">
-        <button mat-menu-item (click)="emitAction(action.name)">
-            <mat-icon [fontIcon]="action.icon"></mat-icon>
-            <span>{{action.name | titlecase | translate}}</span>
+        <button mat-menu-item (click)="emitAction(action)">
+            <mat-icon [fontIcon]="iconMapping[action]" [ngClass]="matClasses[action]">
+            </mat-icon>
+            <span [ngClass]="classes[action]">
+                {{action | titlecase | translate}}
+            </span>
         </button>
     </ng-container>
 </mat-menu>

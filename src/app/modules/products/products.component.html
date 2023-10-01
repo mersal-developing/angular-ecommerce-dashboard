@@ -16,7 +16,7 @@
 
 <ng-container *ngIf="products | async as product">
   <app-table [tableData]="product"
-    [tableCols]="['id', 'image','name', 'category', 'quantity', 'price', 'active', 'actions']" [actions]="actions"
+    [tableCols]="['no', 'image','name', 'category', 'quantity', 'price', 'active', 'actions']" [actions]="actions"
     [hidePageSize]="false" [tablePath]="'products'">
   </app-table>
 </ng-container>
