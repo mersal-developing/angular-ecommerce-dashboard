@@ -13,9 +13,17 @@ export const routes: Routes = [
         title: 'DashBoard'
     },
     {
+        path: `${DashboardRoutes.Products}/${DashboardRoutes.Create}`,
+        loadComponent: () => import('./modules/products/create-product/create-product.component').then((c) => c.CreateProductComponent),
+        title: 'Create-Products',
+        pathMatch: 'full'
+    },
+    {
         path: DashboardRoutes.Products,
         loadComponent: () => import('./modules/products/products.component').then((c) => c.ProductsComponent),
-        title: 'Products'
+        title: 'Products',
+        pathMatch: 'full'
+
     },
     {
         path: DashboardRoutes.Media,

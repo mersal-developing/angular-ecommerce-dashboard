@@ -1,7 +1,8 @@
 <div class="relative flex items-center justify-between w-full h-24 px-8 bg-white shadow">
     <div class="flex items-center">
         <ng-container *ngIf="showBackButton">
-            <mat-icon fontIcon="arrow_back" class="ltr:mr-3 rtl:ml-3 rtl:rotate-180 cursor-pointer"></mat-icon>
+            <mat-icon fontIcon="arrow_back" class="ltr:mr-3 rtl:ml-3 rtl:rotate-180 cursor-pointer"
+                (click)="navigateBack()"></mat-icon>
         </ng-container>
         <div class="flex flex-col">
             <ng-content select=".breadcrumb-name"></ng-content>
@@ -10,5 +11,4 @@
     </div>
     <ng-content select=".breadcrumb-action-buttons"></ng-content>
     <ng-content></ng-content>
-
 </div>

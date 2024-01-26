@@ -3,5 +3,6 @@ export enum DashboardRoutes {
     Products = "products",
     Media = 'media',
     Customers = 'customers',
-    Orders = 'orders'
+    Orders = 'orders',
+    Create = "create"
 }

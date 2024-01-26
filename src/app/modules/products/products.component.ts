@@ -2,12 +2,12 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { BreadcrumbsComponent } from 'src/app/shared/components/breadcrumbs/breadcrumbs.component';
-import { ApiService } from 'src/app/shared/services';
-import { API_URLS, Product } from 'src/app/models';
+import { DashboardRoutes, Product } from 'src/app/models';
 import { Observable } from 'rxjs';
 import { TableComponent } from 'src/app/shared/components/table/table.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -25,21 +25,16 @@ import { MatButtonModule } from '@angular/material/button';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductsComponent {
-  apiServices = inject(ApiService);
+  router = inject(Router);
   products!: Observable<Product[]>;
-  isLoading!: boolean;
   displayedColumns = ['no', 'image', 'name', 'category', 'quantity', 'price'];
   actions = ['view', 'edit', 'delete']
 
   ngOnInit() {
-    this.isLoading = true;
-    this.products = this.apiServices.request<Product[]>(
-      'GET',
-      API_URLS.Products,
-      {
-        _page: 1,
-        _limit: 10
-      })
+  }
+
+  createProduct(){
+    this.router.navigateByUrl(`${DashboardRoutes.Products}/${DashboardRoutes.Create}`)
   }
 
 }

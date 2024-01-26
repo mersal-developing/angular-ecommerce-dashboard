@@ -12,13 +12,33 @@ export const NavLinks: NavigationItem[] = [
         active: true
     },
     {
-        id: 'products',
-        title: 'Products',
-        type: 'item',
+        id: 'products-group',
+        title: 'ProductsGroup',
+        type: 'collapsable',
         icon: 'dashboard',
         hidden: false,
-        url: '/products',
-        active: true
+        active: true,
+        children: [
+            {
+                id: 'createProduct',
+                title: 'Add Product',
+                type: 'item',
+                icon: 'laptop_windows',
+                hidden: false,
+                url: '/products/create',
+                active: true
+            },
+            {
+                id: 'products',
+                title: 'Products',
+                type: 'item',
+                icon: 'dashboard',
+                hidden: false,
+                url: '/products',
+                active: true,
+            }
+
+        ]
     },
     {
         id: 'customers',
