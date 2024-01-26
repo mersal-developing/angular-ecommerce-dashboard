@@ -26,7 +26,8 @@ export const NavLinks: NavigationItem[] = [
                 icon: 'laptop_windows',
                 hidden: false,
                 url: '/products/create',
-                active: true
+                active: true,
+                exactMatch: true
             },
             {
                 id: 'products',
@@ -36,6 +37,8 @@ export const NavLinks: NavigationItem[] = [
                 hidden: false,
                 url: '/products',
                 active: true,
+                exactMatch: true
+
             }
 
         ]
