@@ -1,11 +1,9 @@
-import { Location } from "@angular/common";
 import { Injectable, inject } from "@angular/core";
 import { Event, NavigationEnd, Router } from "@angular/router";
-import { filter, take } from "rxjs";
+import { filter } from "rxjs";
 
 @Injectable({ providedIn: "root" })
 export class RoutingService {
-    location = inject(Location);
     router = inject(Router);
     private _history: string[] = [];
 
@@ -31,6 +29,4 @@ export class RoutingService {
     navigateBackClicked() {
         this.router.navigateByUrl(this.backLink);
     }
-
-
 }
