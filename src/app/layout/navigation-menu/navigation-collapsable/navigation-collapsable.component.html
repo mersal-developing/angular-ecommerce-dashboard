@@ -1,21 +1,28 @@
-<div class="hover-link mb-1" [class.active-collapse]="isOpen">
+<div class="hover-link mb-1" [class.active-collapse]="isOpen" [class.pb-3]="isOpen">
     <div class="flex justify-between items-center cursor-pointer py-2 px-2" (click)="toggle()">
         <div class="flex items-center">
             <ng-container *ngIf="item.icon">
                 <mat-icon [fontIcon]="item.icon" class="ltr:mr-1 rtl:ml-1 text-white text-base"></mat-icon>
             </ng-container>
-            <span class="text-white text-base nav-fold">{{item.title | translate | titlecase}}</span>
+            <span class="text-white text-base nav-fold">
+                {{item.title | translate | titlecase}}
+            </span>
         </div>
-        <mat-icon fontIcon="keyboard_arrow_right" class="text-white nav-fold rtl:hidden"
-            [class.rotate-90]="isOpen"></mat-icon>
-        <mat-icon fontIcon="keyboard_arrow_left" class="text-white nav-fold ltr:hidden"
-            [class.-rotate-90]="isOpen"></mat-icon>
+
+        <ng-container *ngIf="translationService.isLtr">
+            <mat-icon fontIcon="keyboard_arrow_right" class="text-white nav-fold rtl:hidden"
+                [class.rotate-90]="isOpen"></mat-icon>
+        </ng-container>
+
+        <ng-container *ngIf="translationService.isRtl">
+            <mat-icon fontIcon="keyboard_arrow_left" class="text-white nav-fold ltr:hidden"
+                [class.-rotate-90]="isOpen"></mat-icon>
+        </ng-container>
     </div>
 
     <ng-container *ngIf="isOpen">
         <div class="children">
             <ng-container *ngFor="let child of item.children">
-
                 <ng-container [ngSwitch]="child.type">
                     <ng-container *ngSwitchCase="navItemType.Item">
                         <app-navigation-item [item]="child" class="nav-collapse"></app-navigation-item>

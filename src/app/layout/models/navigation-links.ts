@@ -13,7 +13,7 @@ export const NavLinks: NavigationItem[] = [
     },
     {
         id: 'products-group',
-        title: 'ProductsGroup',
+        title: 'Products',
         type: 'collapsable',
         icon: 'dashboard',
         hidden: false,
@@ -26,19 +26,17 @@ export const NavLinks: NavigationItem[] = [
                 icon: 'laptop_windows',
                 hidden: false,
                 url: '/products/create',
-                active: true,
-                exactMatch: true
+                active: true
             },
             {
                 id: 'products',
-                title: 'Products',
+                title: 'all products',
                 type: 'item',
                 icon: 'dashboard',
                 hidden: false,
                 url: '/products',
                 active: true,
                 exactMatch: true
-
             }
 
         ]

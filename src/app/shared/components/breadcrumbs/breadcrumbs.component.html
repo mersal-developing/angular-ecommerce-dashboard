@@ -1,6 +1,6 @@
 <div class="relative flex items-center justify-between w-full h-24 px-8 bg-white shadow">
     <div class="flex items-center">
-        <ng-container *ngIf="showBackButton">
+        <ng-container *ngIf="showBackButton && canNavigateBack">
             <mat-icon fontIcon="arrow_back" class="ltr:mr-3 rtl:ml-3 rtl:rotate-180 cursor-pointer"
                 (click)="navigateBack()"></mat-icon>
         </ng-container>

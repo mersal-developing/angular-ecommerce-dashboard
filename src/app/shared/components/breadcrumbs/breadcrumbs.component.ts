@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { Router } from '@angular/router';
+import { RoutingService } from 'src/app/core/services';
 
 @Component({
   selector: 'app-breadcrumbs',
@@ -13,10 +13,17 @@ import { Router } from '@angular/router';
 })
 export class BreadcrumbsComponent {
   @Input() showBackButton!: boolean;
-  router = inject(Router);
+  routingService = inject(RoutingService);
+  canNavigateBack = false;
 
+  ngOnInit() {
+    if(this.routingService.history.length > 1) this.canNavigateBack = true; 
+  }
 
   navigateBack() {
-    this.router
+    this.routingService.navigateBackClicked();
   }
+
+
+
 }

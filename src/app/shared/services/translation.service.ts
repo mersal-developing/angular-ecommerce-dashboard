@@ -1,6 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
 import { DOCUMENT } from "@angular/common";
 import { LocalStorageService } from './localstorage.service';
