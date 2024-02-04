@@ -2,9 +2,10 @@
     <mat-tab label="tab1">
         <div class="flex justify-between items-center cursor-pointer py-2 px-2 hover-link mb-1" (click)="openTap()">
             <div class="flex items-center">
-                <ng-container *ngIf="item.icon">
+                @if(item.icon) {
                     <mat-icon [fontIcon]="item.icon" class="ltr:mr-1 rtl:ml-1 text-white text-base"></mat-icon>
-                </ng-container>
+                }
+               
                 <span class="text-white text-base nav-fold">{{item.title | translate | titlecase}}</span>
             </div>
             <mat-icon fontIcon="keyboard_arrow_right" class="text-white nav-fold rtl:hidden"></mat-icon>
@@ -12,7 +13,7 @@
         </div>
     </mat-tab>
     
-    <ng-container *ngIf="openNextTab">
+    @if(openNextTab) {
         <mat-tab label="tab2">
             <div class="children">
                 <div class="flex justify-start items-center cursor-pointer tab-back-button" (click)="closeTab()">
@@ -21,26 +22,22 @@
                     <span class="text-secondary-300 text-base nav-fold">{{item.title | translate}}</span>
                 </div>
 
-                <ng-container *ngFor="let child of item.children">
-
-                    <ng-container [ngSwitch]="child.type">
-                        <ng-container *ngSwitchCase="navItemType.Item">
-                            <app-navigation-item [item]="child" class="nav-collapse"></app-navigation-item>
-                        </ng-container>
-
-                        <ng-container *ngSwitchCase="navItemType.Collapsable">
-                            <app-navigation-collapsable [item]="child"
-                                class="nav-collapse nav-collapse-l2"></app-navigation-collapsable>
-                        </ng-container>
-
-                        <ng-container *ngSwitchCase="navItemType.Tabs">
-                            <app-navigation-tabs [item]="child" class="nav-collapse"></app-navigation-tabs>
-                        </ng-container>
-                    </ng-container>
-                </ng-container>
-            </div>
+                    @for(child of item.children; track child.id) {
+                        @switch (child.type) {
+                            @case(navItemType.Item){
+                                <app-navigation-item [item]="child" class="nav-collapse"></app-navigation-item>
+                            }
+                            @case(navItemType.Collapsable) {
+                                <app-navigation-collapsable [item]="child" class="nav-collapse nav-collapse-l2"></app-navigation-collapsable>
+                            }
+                            @case(navItemType.Tabs) {
+                                <app-navigation-tabs [item]="child" class="nav-collapse"></app-navigation-tabs>
+                            }
+                        }
+                    }
+               
+                </div>
         </mat-tab>
-    </ng-container>
-
+    }
 
 </mat-tab-group>

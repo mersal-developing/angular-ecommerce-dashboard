@@ -27,7 +27,7 @@ import { Router } from '@angular/router';
 export class ProductsComponent {
   router = inject(Router);
   products!: Observable<Product[]>;
-  displayedColumns = ['no', 'image', 'name', 'category', 'quantity', 'price'];
+  displayedColumns = ['no', 'image','name', 'category', 'quantity', 'price', 'active', 'actions'];
   actions = ['view', 'edit', 'delete']
 
   ngOnInit() {

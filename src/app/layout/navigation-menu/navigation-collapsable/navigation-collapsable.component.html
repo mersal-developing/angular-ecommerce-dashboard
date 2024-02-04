@@ -1,43 +1,48 @@
 <div class="hover-link mb-1" [class.active-collapse]="isOpen" [class.pb-3]="isOpen">
     <div class="flex justify-between items-center cursor-pointer py-2 px-2" (click)="toggle()">
         <div class="flex items-center">
-            <ng-container *ngIf="item.icon">
-                <mat-icon [fontIcon]="item.icon" class="ltr:mr-1 rtl:ml-1 text-white text-base"></mat-icon>
-            </ng-container>
+
+            @if(item.icon) {
+            <mat-icon [fontIcon]="item.icon" class="ltr:mr-1 rtl:ml-1 text-white text-base"></mat-icon>
+
+            }
+
             <span class="text-white text-base nav-fold">
                 {{item.title | translate | titlecase}}
             </span>
         </div>
 
-        <ng-container *ngIf="translationService.isLtr">
-            <mat-icon fontIcon="keyboard_arrow_right" class="text-white nav-fold rtl:hidden"
-                [class.rotate-90]="isOpen"></mat-icon>
-        </ng-container>
+        @if (translationService.isLtr) {
+        <mat-icon fontIcon="keyboard_arrow_right" class="text-white nav-fold rtl:hidden"
+            [class.rotate-90]="isOpen"></mat-icon>
+        }
 
-        <ng-container *ngIf="translationService.isRtl">
-            <mat-icon fontIcon="keyboard_arrow_left" class="text-white nav-fold ltr:hidden"
-                [class.-rotate-90]="isOpen"></mat-icon>
-        </ng-container>
+        @if (translationService.isRtl) {
+        <mat-icon fontIcon="keyboard_arrow_left" class="text-white nav-fold ltr:hidden"
+            [class.-rotate-90]="isOpen"></mat-icon>
+        }
+
     </div>
 
-    <ng-container *ngIf="isOpen">
-        <div class="children">
-            <ng-container *ngFor="let child of item.children">
-                <ng-container [ngSwitch]="child.type">
-                    <ng-container *ngSwitchCase="navItemType.Item">
-                        <app-navigation-item [item]="child" class="nav-collapse"></app-navigation-item>
-                    </ng-container>
+    @if (isOpen) {
+    <div class="children">
+        @for(child of item.children; track child.id) {
+            @switch (child.type) {
+                @case (navItemType.Item) {
+                    <app-navigation-item [item]="child" class="nav-collapse"></app-navigation-item>
+                }
+                @case (navItemType.Collapsable) {
+                    <app-navigation-collapsable [item]="child"
+                    class="nav-collapse nav-collapse-l2"></app-navigation-collapsable>
+                }
+                @case (navItemType.Tabs) {
+                    <app-navigation-tabs [item]="child"></app-navigation-tabs>
 
-                    <ng-container *ngSwitchCase="navItemType.Collapsable">
-                        <app-navigation-collapsable [item]="child"
-                            class="nav-collapse nav-collapse-l2"></app-navigation-collapsable>
-                    </ng-container>
+                }
+            }
+        }
+    </div>
+    }
 
-                    <ng-container *ngSwitchCase="navItemType.Tabs">
-                        <app-navigation-tabs [item]="child"></app-navigation-tabs>
-                    </ng-container>
-                </ng-container>
-            </ng-container>
-        </div>
-    </ng-container>
+
 </div>

@@ -1,0 +1,74 @@
+@switch(type) {
+    @case(inputFieldTypes.TEXT) {
+        <mat-form-field [appearance]="formFieldAppearance" [floatLabel]="floatLabel" [subscriptSizing]="subscriptSizing">
+            @if(label) {
+                <mat-label> {{label}}</mat-label>
+            }
+            <input matInput type="text" [required]="required" [placeholder]="placeHolder">
+        </mat-form-field>
+    }
+
+    @case(inputFieldTypes.TEXTAREA) {
+        <mat-form-field [appearance]="formFieldAppearance" [floatLabel]="floatLabel">
+            @if(label) {
+                <mat-label> {{label}}</mat-label>
+            }
+            <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" [cdkAutosizeMinRows]="textAreaMinRow"
+                [cdkAutosizeMaxRows]="textAreaMaxRow" [placeholder]="placeHolder"></textarea>
+        </mat-form-field>
+    }
+    @case(inputFieldTypes.SELECT) {
+        <mat-form-field [appearance]="formFieldAppearance" [floatLabel]="floatLabel">
+            @if(label) {
+                <mat-label> {{label}}</mat-label>
+            }
+            <mat-select>
+                @for(option of optionList; track option.name) {
+                    <mat-option [value]="option.value">{{option.name}}</mat-option>
+
+                }
+            </mat-select>
+        </mat-form-field>
+    }
+    @case(inputFieldTypes.NUMBER) {
+        <mat-form-field [appearance]="formFieldAppearance" [floatLabel]="floatLabel">
+            @if(label) {
+                <mat-label> {{label}}</mat-label>
+            }
+            <input matInput type="number" [placeholder]="placeHolder">
+        </mat-form-field>
+    }
+    @case(inputFieldTypes.SLIDE) {
+        <mat-slide-toggle>{{label}}</mat-slide-toggle>
+    }
+    @case(inputFieldTypes.FILE) {
+        @if(label) {
+            <mat-label> {{label}}</mat-label>
+        }
+        <input type="file" [accept]="fileTypes" />
+    }
+    @case(inputFieldTypes.RADIO) {
+        <mat-radio-group>
+                @for(option of optionList; track option.name) {
+                    <mat-radio-button [value]="option.value">{{option.name}}</mat-radio-button>
+                }
+        </mat-radio-group>
+    }
+
+    @case(inputFieldTypes.DATE) {
+        <mat-form-field [floatLabel]="floatLabel">
+            @if(label) {
+                <mat-label> {{label}}</mat-label>
+            }       
+            <input matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    }
+}
+
+
+@if(actionButtonLabel) {
+    <button mat-raised-button>{{actionButtonLabel}}</button>
+}

@@ -4,15 +4,16 @@
 </button>
 
 <mat-menu #menu="matMenu" class="!rounded-lg w-[13Opx] !p-0">
-    <ng-container *ngFor="let lang of languages">
+    @for(lang of languages; track lang) {
         <button mat-menu-item (click)="switchLang(lang)" class="items-center !justify-between !p-2">
-            <ng-container *ngIf="lang === (currentLanguage | async)">
+            @if(lang === (currentLanguage | async)) {
                 <mat-icon fontIcon="done" class="!w-[30px] !h-[17px] text-[20px] rtl:!ml-[34px]"></mat-icon>
-            </ng-container>
-            <ng-container *ngIf="lang !== (currentLanguage | async)">
+            }
+            @if(lang !== (currentLanguage | async)) {
                 <span  class="w-[59px] inline-block"></span>
-            </ng-container>
+            }
             <span class="inline-block">{{lang | language}}</span>
         </button>
-    </ng-container>
+    }
+    
 </mat-menu>

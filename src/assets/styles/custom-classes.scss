@@ -69,4 +69,34 @@
   direction: ltr;
 }
 
+.create-produc-input {
+  flex-grow: 1;
 
+  mat-form-field {
+    width: 50%;
+  }
+}
+
+
+
+.create-product__sections-menu {
+  .mat-mdc-tab-labels {
+    flex-direction: column;
+  }
+
+  .mdc-tab-indicator {
+    display: none;
+  }
+
+  .mdc-tab--active {
+    @apply bg-primary-800 rounded-md font-medium;
+  }
+
+  .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+    @apply hover:text-custom-light-grey text-custom-light-grey focus:text-custom-light-grey;
+  }
+
+  .mat-mdc-tab.mdc-tab--active:focus .mdc-tab__text-label {
+    @apply text-custom-light-grey
+  }
+}

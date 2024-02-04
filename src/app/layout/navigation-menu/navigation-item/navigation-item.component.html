@@ -1,52 +1,55 @@
-<ng-container *ngIf="!item.hidden">
+@if(!item.hidden) {
 
-    <!-- item.url -->
-    <ng-container *ngIf="item.url && !item.externalUrl && !item.function">
-        <a [routerLink]="item.url" [routerLinkActive]="['active-link']" class="nav-link hover-link"
-        [routerLinkActiveOptions]="{ exact: item.exactMatch ? item.exactMatch : false }"
-        >
-            <ng-container [ngTemplateOutlet]="itemContent" [ngTemplateOutletContext]="{item: item}"></ng-container>
-        </a>
-    </ng-container>
+<!-- item.url -->
+@if(item.url && !item.externalUrl && !item.function) {
+<a [routerLink]="item.url" [routerLinkActive]="['active-link']" class="nav-link hover-link"
+    [routerLinkActiveOptions]="{ exact: item.exactMatch ? item.exactMatch : false }">
+    <ng-container [ngTemplateOutlet]="itemContent" [ngTemplateOutletContext]="{item: item}"></ng-container>
+</a>
+}
 
-    <!-- item.externalUrl -->
-    <ng-container *ngIf="!item.url && item.externalUrl && !item.function">
-        <a [href]="item.externalUrl" [target]="item.target" class="nav-link hover-link">
-            <ng-container [ngTemplateOutlet]="itemContent" [ngTemplateOutletContext]="{item: item}"></ng-container>
-        </a>
-    </ng-container>
 
-    <!-- item.function -->
-    <ng-container *ngIf="!item.url && item.function">
-        <span (click)="item.function()" class="nav-link hover-link cursor-pointer">
-            <ng-container [ngTemplateOutlet]="itemContent" [ngTemplateOutletContext]="{item: item}"></ng-container>
-        </span>
-    </ng-container>
+<!-- item.externalUrl -->
+@if(!item.url && item.externalUrl && !item.function) {
+<a [href]="item.externalUrl" [target]="item.target" class="nav-link hover-link">
+    <ng-container [ngTemplateOutlet]="itemContent" [ngTemplateOutletContext]="{item: item}"></ng-container>
+</a>
+}
 
-    <!-- item.url && item.function -->
-    <ng-container *ngIf="item.url && item.function">
-        <a (click)="item.function()" [routerLink]="item.url" [routerLinkActive]="['active-link']"
-            [routerLinkActiveOptions]="{ exact: item.exactMatch ? item.exactMatch : false }"
-            class="nav-link hover-link">
-            <ng-container [ngTemplateOutlet]="itemContent" [ngTemplateOutletContext]="{item: item}"></ng-container>
-        </a>
-    </ng-container>
 
-    <!-- item.externalUrl && item.function -->
-    <ng-container *ngIf="item.externalUrl && item.function">
-        <a [href]="item.externalUrl" (click)="item.function()" [target]="item.target" class="nav-link hover-link">
-            <ng-container [ngTemplateOutlet]="itemContent" [ngTemplateOutletContext]="{item: item}"></ng-container>
-        </a>
-    </ng-container>
+<!-- item.function -->
+@if(!item.url && item.function) {
+<span (click)="item.function()" class="nav-link hover-link cursor-pointer">
+    <ng-container [ngTemplateOutlet]="itemContent" [ngTemplateOutletContext]="{item: item}"></ng-container>
+</span>
+}
 
-</ng-container>
+<!-- item.url && item.function -->
+@if(item.url && item.function) {
+<a (click)="item.function()" [routerLink]="item.url" [routerLinkActive]="['active-link']"
+    [routerLinkActiveOptions]="{ exact: item.exactMatch ? item.exactMatch : false }" class="nav-link hover-link">
+    <ng-container [ngTemplateOutlet]="itemContent" [ngTemplateOutletContext]="{item: item}"></ng-container>
+</a>
+}
+
+<!-- item.externalUrl && item.function -->
+@if(item.externalUrl && item.function) {
+<a [href]="item.externalUrl" (click)="item.function()" [target]="item.target" class="nav-link hover-link">
+    <ng-container [ngTemplateOutlet]="itemContent" [ngTemplateOutletContext]="{item: item}"></ng-container>
+</a>
+}
+
+}
 
 <ng-template #itemContent let-item="item">
-    <ng-container *ngIf="item.icon">
-        <mat-icon [fontIcon]="item.icon" class="text-white text-base ltr:mr-1"></mat-icon>
-    </ng-container>
+    @if(item.icon) {
+    <mat-icon [fontIcon]="item.icon" class="text-white text-base ltr:mr-1"></mat-icon>
+    }
+
     <span class="text-white text-base nav-fold">{{item.title | translate | titlecase}}</span>
-    <ng-container *ngIf="item.badge">
-        <span class="text-white text-base nav-fold">{{item.badge.title}}</span>
-    </ng-container>
+
+    @if(item.badge) {
+    <span class="text-white text-base nav-fold">{{item.badge.title}}</span>
+    }
+
 </ng-template>

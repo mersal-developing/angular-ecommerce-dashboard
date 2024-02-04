@@ -1,7 +1,7 @@
 <mat-icon class="action-button" mat-icon-button [matMenuTriggerFor]="menu" class="cursor-pointer">more_vert</mat-icon>
 
 <mat-menu #menu="matMenu">
-    <ng-container *ngFor="let action of actions">
+    @for(action of actions; track action) {
         <button mat-menu-item (click)="emitAction(action)">
             <mat-icon [fontIcon]="iconMapping[action]" [ngClass]="matClasses[action]">
             </mat-icon>
@@ -9,5 +9,5 @@
                 {{action | titlecase | translate}}
             </span>
         </button>
-    </ng-container>
+    }    
 </mat-menu>

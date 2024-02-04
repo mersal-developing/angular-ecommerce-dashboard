@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MatIconModule } from '@angular/material/icon';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -22,7 +21,7 @@ import { NavigationItem, NavItemType, MenuOpenStatus } from '../models';
   styleUrls: ['./navigation-menu.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    CommonModule,
+    // CommonModule,
     NavigationItemComponent,
     NavigationCollapsableComponent,
     NavigationGroupComponent,

@@ -1,5 +1,51 @@
 <app-breadcrumbs [showBackButton]="true">
   <div class="breadcrumb-name">
-    {{ "add product" | translate | titlecase }}
+    {{"add product" | translate | titlecase }}
   </div>
 </app-breadcrumbs>
+
+
+<div class="create-product flex w-full p-4">
+  <div class="create-product__sections-menu flex mr-24">
+    <mat-tab-group>
+      @for (section of sections; track section.name) {
+
+      <mat-tab [label]="section.name">
+        <!-- <ng-container [ngTemplateOutlet]="section.name"></ng-container> -->
+      </mat-tab>
+      }
+    </mat-tab-group>
+  </div>
+  
+  <ng-template #general> 
+    <div class="create-product__form w-full">
+      <div class="flex items-center justify-start">
+        <div class="mr-3 min-w-28">
+          <label for="name">
+            {{'name'| translate | titlecase}}
+          </label>
+          <ng-container [ngTemplateOutlet]="requiredTemplate"></ng-container>
+        </div>
+        <app-form-fields [label]="'name' | titlecase | translate" [type]="'text'" [formFieldAppearance]="'outline'"
+          [className]="'create-produc-input'"></app-form-fields>
+      </div>
+    
+      <div class="flex items-center justify-start mt-5">
+        <div class="mr-3 min-w-28">
+          <label for="description">
+            {{'description'| translate | titlecase}}
+          </label>
+          <ng-container [ngTemplateOutlet]="requiredTemplate"></ng-container>
+        </div>
+        <app-form-fields [label]="'product description' | titlecase | translate" [type]="'textarea'"
+          [formFieldAppearance]="'outline'" [className]="'create-produc-input'" [textAreaMinRow]="4"></app-form-fields>
+      </div>
+    </div>
+  </ng-template>  
+</div>
+
+<ng-template #requiredTemplate>
+  <label class="text-primary-400">
+    *
+  </label>
+</ng-template>

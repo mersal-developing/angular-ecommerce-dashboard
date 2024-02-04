@@ -18,7 +18,8 @@ module.exports = {
         "light-grey": "#a3a1a1",
         "active": colors.green[400],
         "inactive": colors.red[400],
-        "warning": colors.red[500]        
+        "warning": colors.red[500],
+        "custom-light-grey": "#f9f9f6"
       },
       keyframes: {
         slide: {

@@ -13,10 +13,8 @@
 
 </app-breadcrumbs>
 
-
-<ng-container *ngIf="products | async as product">
-  <app-table [tableData]="product"
-    [tableCols]="['no', 'image','name', 'category', 'quantity', 'price', 'active', 'actions']" [actions]="actions"
-    [hidePageSize]="false" [tablePath]="'products'">
+@if(products | async; as product) {
+  <app-table [tableData]="product" [tableCols]="displayedColumns" [actions]="actions" [hidePageSize]="false"
+    [tablePath]="'products'">
   </app-table>
-</ng-container>
+}

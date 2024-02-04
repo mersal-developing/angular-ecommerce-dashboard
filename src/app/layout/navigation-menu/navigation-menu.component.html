@@ -10,29 +10,23 @@
     </div>
 
     <div class="nav-menu-items">
-        <ng-container *ngFor="let item of navItems">
-
-            <ng-container [ngSwitch]="item.type">
-
-                <ng-container *ngSwitchCase="navItemType.Item">
+        @for(item of navItems; track item.id) {
+            @switch(item.type) {
+                @case(navItemType.Item){
                     <app-navigation-item [item]="item"></app-navigation-item>
-                </ng-container>
-
-                <ng-container *ngSwitchCase="navItemType.Collapsable">
+                }
+                @case (navItemType.Collapsable) {
                     <app-navigation-collapsable [item]="item"></app-navigation-collapsable>
-                </ng-container>
-
-                <ng-container *ngSwitchCase="navItemType.Tabs">
+                }
+                @case(navItemType.Tabs){
                     <app-navigation-tabs [item]="item"></app-navigation-tabs>
-                </ng-container>
-
-                <ng-container *ngSwitchCase="navItemType.Group">
+                }
+                @case(navItemType.Group) {
                     <app-navigation-group [item]="item"></app-navigation-group>
-                </ng-container>
+                }
+            }
+        }
 
-            </ng-container>
-
-        </ng-container>
     </div>
 
 </div>
