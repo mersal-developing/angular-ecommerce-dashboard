@@ -13,6 +13,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { TranslationService } from '../../services';
 import { InputFieldsTypes } from '../../models';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-form-fields',
@@ -27,7 +28,8 @@ import { InputFieldsTypes } from '../../models';
     CommonModule,
     ReactiveFormsModule,
     TextFieldModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    TranslateModule
   ],
   templateUrl: './form-fields.component.html',
   styleUrl: './form-fields.component.scss',

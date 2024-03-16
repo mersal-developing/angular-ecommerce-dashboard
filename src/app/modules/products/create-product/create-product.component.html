@@ -6,38 +6,39 @@
 
 
 <div class="create-product flex w-full p-4">
-  <div class="create-product__sections-menu flex mr-24">
-    <mat-tab-group>
+  <div class="create-product__sections-menu flex basis-full">
+    <mat-tab-group class="!flex-row w-full">
       @for (section of sections; track section.name) {
 
-      <mat-tab [label]="section.name">
-        <!-- <ng-container [ngTemplateOutlet]="section.name"></ng-container> -->
+      <mat-tab [label]="section.name | translate">
+         <ng-container [ngTemplateOutlet]="general"></ng-container> 
       </mat-tab>
       }
     </mat-tab-group>
+    
   </div>
   
   <ng-template #general> 
-    <div class="create-product__form w-full">
+    <div class="create-product__form w-full mt-4">
       <div class="flex items-center justify-start">
-        <div class="mr-3 min-w-28">
+        <div class="mr-3 w-1/6">
           <label for="name">
             {{'name'| translate | titlecase}}
           </label>
           <ng-container [ngTemplateOutlet]="requiredTemplate"></ng-container>
         </div>
-        <app-form-fields [label]="'name' | titlecase | translate" [type]="'text'" [formFieldAppearance]="'outline'"
+        <app-form-fields [label]="'name'" [type]="'text'" [formFieldAppearance]="'outline'"
           [className]="'create-produc-input'"></app-form-fields>
       </div>
-    
-      <div class="flex items-center justify-start mt-5">
-        <div class="mr-3 min-w-28">
+  
+      <div class="flex items-start justify-start mt-5">
+        <div class="mr-3 w-1/6">
           <label for="description">
             {{'description'| translate | titlecase}}
           </label>
           <ng-container [ngTemplateOutlet]="requiredTemplate"></ng-container>
         </div>
-        <app-form-fields [label]="'product description' | titlecase | translate" [type]="'textarea'"
+        <app-form-fields [label]="'product description'" [type]="'textarea'"
           [formFieldAppearance]="'outline'" [className]="'create-produc-input'" [textAreaMinRow]="4"></app-form-fields>
       </div>
     </div>

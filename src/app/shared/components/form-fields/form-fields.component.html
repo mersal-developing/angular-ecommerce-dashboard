@@ -2,16 +2,16 @@
     @case(inputFieldTypes.TEXT) {
         <mat-form-field [appearance]="formFieldAppearance" [floatLabel]="floatLabel" [subscriptSizing]="subscriptSizing">
             @if(label) {
-                <mat-label> {{label}}</mat-label>
+                <mat-label> {{label | translate}}</mat-label>
             }
             <input matInput type="text" [required]="required" [placeholder]="placeHolder">
         </mat-form-field>
     }
 
     @case(inputFieldTypes.TEXTAREA) {
-        <mat-form-field [appearance]="formFieldAppearance" [floatLabel]="floatLabel">
+        <mat-form-field [appearance]="formFieldAppearance" [floatLabel]="floatLabel" class="min-h-32">
             @if(label) {
-                <mat-label> {{label}}</mat-label>
+                <mat-label> {{label  | translate}}</mat-label>
             }
             <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" [cdkAutosizeMinRows]="textAreaMinRow"
                 [cdkAutosizeMaxRows]="textAreaMaxRow" [placeholder]="placeHolder"></textarea>
@@ -20,7 +20,7 @@
     @case(inputFieldTypes.SELECT) {
         <mat-form-field [appearance]="formFieldAppearance" [floatLabel]="floatLabel">
             @if(label) {
-                <mat-label> {{label}}</mat-label>
+                <mat-label> {{label  | translate}}</mat-label>
             }
             <mat-select>
                 @for(option of optionList; track option.name) {
@@ -33,17 +33,17 @@
     @case(inputFieldTypes.NUMBER) {
         <mat-form-field [appearance]="formFieldAppearance" [floatLabel]="floatLabel">
             @if(label) {
-                <mat-label> {{label}}</mat-label>
+                <mat-label> {{label | translate}}</mat-label>
             }
             <input matInput type="number" [placeholder]="placeHolder">
         </mat-form-field>
     }
     @case(inputFieldTypes.SLIDE) {
-        <mat-slide-toggle>{{label}}</mat-slide-toggle>
+        <mat-slide-toggle>{{label | translate}}</mat-slide-toggle>
     }
     @case(inputFieldTypes.FILE) {
         @if(label) {
-            <mat-label> {{label}}</mat-label>
+            <mat-label> {{label | translate}}</mat-label>
         }
         <input type="file" [accept]="fileTypes" />
     }
@@ -58,7 +58,7 @@
     @case(inputFieldTypes.DATE) {
         <mat-form-field [floatLabel]="floatLabel">
             @if(label) {
-                <mat-label> {{label}}</mat-label>
+                <mat-label> {{label | translate}}</mat-label>
             }       
             <input matInput [matDatepicker]="picker">
             <mat-hint>MM/DD/YYYY</mat-hint>

@@ -3,10 +3,20 @@
   "Products Insights": "Products Insights",
   "Orders": "Orders",
   "Customer": "Customer",
-  "List": "List", 
+  "List": "List",
   "Profile": "Profile",
   "Sign Out": "Sign Out",
   "Signed in as": "Signed in as",
   "add product": "add product",
-  "all products": "all products"
+  "all products": "all products",
+  "product description": "product description",
+  "description": "description",
+  "general": "general",
+  "inventory": "inventory",
+  "setup": "setup",
+  "images": "images",
+  "seo": "seo",
+  "Shipping & Tax": "Shipping & Tax",
+  "status": "status",
+  "short description": "short description"
 }
