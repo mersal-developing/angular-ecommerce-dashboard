@@ -36,5 +36,8 @@
   "seo": "محركات البحث",
   "Shipping & Tax": "الشحن و الضرائب",
   "status": "الحالة",
-  "short description": "وصف مختصر"
+  "short description": "وصف مختصر",
+  "amount": "الكمية",
+  "discount": "الخصم",
+  "sale price": "سعر الخصم"
 }

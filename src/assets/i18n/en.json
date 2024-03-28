@@ -18,5 +18,8 @@
   "seo": "seo",
   "Shipping & Tax": "Shipping & Tax",
   "status": "status",
-  "short description": "short description"
+  "short description": "short description",
+  "amount": "amount",
+  "discount": "discount",
+  "Sale Price": "Sale Price"
 }

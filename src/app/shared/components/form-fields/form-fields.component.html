@@ -1,74 +1,112 @@
-@switch(type) {
-    @case(inputFieldTypes.TEXT) {
-        <mat-form-field [appearance]="formFieldAppearance" [floatLabel]="floatLabel" [subscriptSizing]="subscriptSizing">
-            @if(label) {
-                <mat-label> {{label | translate}}</mat-label>
-            }
-            <input matInput type="text" [required]="required" [placeholder]="placeHolder">
-        </mat-form-field>
-    }
+@switch(type) { @case(inputFieldTypes.TEXT) {
+<mat-form-field
+  [appearance]="formFieldAppearance"
+  [floatLabel]="floatLabel"
+  [subscriptSizing]="subscriptSizing"
+  [class.preIconContainer]="preIcon"
+  [class.postIconContainer]="postIcon"
+>
+  @if(label) {
+  <mat-label> {{ label | translate }}</mat-label>
+  }
+  <input
+    matInput
+    type="text"
+    [required]="required"
+    [placeholder]="placeHolder"
+    [readonly]="readOnly && 'readOnly'"
+    [disabled]="disabled"
+  />
+</mat-form-field>
+<span
+  class="material-symbols-outlined"
+  [class.prePosition]="preIcon"
+  [class.postPosition]="postIcon"
+  [class.input-icon]="preIcon || postIcon"
+>
+  {{ icon }}
+</span>
+} @case(inputFieldTypes.TEXTAREA) {
+<mat-form-field
+  [appearance]="formFieldAppearance"
+  [floatLabel]="floatLabel"
+  class="min-h-32"
+>
+  @if(label) {
+  <mat-label> {{ label | translate }}</mat-label>
+  }
+  <textarea
+    matInput
+    cdkTextareaAutosize
+    #autosize="cdkTextareaAutosize"
+    [cdkAutosizeMinRows]="textAreaMinRow"
+    [cdkAutosizeMaxRows]="textAreaMaxRow"
+    [placeholder]="placeHolder"
+    [readonly]="readOnly && 'readOnly'"
+    [disabled]="disabled"
+  ></textarea>
+</mat-form-field>
+} @case(inputFieldTypes.SELECT) {
+<mat-form-field [appearance]="formFieldAppearance" [floatLabel]="floatLabel">
+  @if(label) {
+  <mat-label> {{ label | translate }}</mat-label>
+  }
+  <mat-select [disabled]="disabled">
+    @for(option of optionList; track option.name) {
+    <mat-option [value]="option.value">{{ option.name }}</mat-option>
 
-    @case(inputFieldTypes.TEXTAREA) {
-        <mat-form-field [appearance]="formFieldAppearance" [floatLabel]="floatLabel" class="min-h-32">
-            @if(label) {
-                <mat-label> {{label  | translate}}</mat-label>
-            }
-            <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" [cdkAutosizeMinRows]="textAreaMinRow"
-                [cdkAutosizeMaxRows]="textAreaMaxRow" [placeholder]="placeHolder"></textarea>
-        </mat-form-field>
     }
-    @case(inputFieldTypes.SELECT) {
-        <mat-form-field [appearance]="formFieldAppearance" [floatLabel]="floatLabel">
-            @if(label) {
-                <mat-label> {{label  | translate}}</mat-label>
-            }
-            <mat-select>
-                @for(option of optionList; track option.name) {
-                    <mat-option [value]="option.value">{{option.name}}</mat-option>
-
-                }
-            </mat-select>
-        </mat-form-field>
-    }
-    @case(inputFieldTypes.NUMBER) {
-        <mat-form-field [appearance]="formFieldAppearance" [floatLabel]="floatLabel">
-            @if(label) {
-                <mat-label> {{label | translate}}</mat-label>
-            }
-            <input matInput type="number" [placeholder]="placeHolder">
-        </mat-form-field>
-    }
-    @case(inputFieldTypes.SLIDE) {
-        <mat-slide-toggle>{{label | translate}}</mat-slide-toggle>
-    }
-    @case(inputFieldTypes.FILE) {
-        @if(label) {
-            <mat-label> {{label | translate}}</mat-label>
-        }
-        <input type="file" [accept]="fileTypes" />
-    }
-    @case(inputFieldTypes.RADIO) {
-        <mat-radio-group>
-                @for(option of optionList; track option.name) {
-                    <mat-radio-button [value]="option.value">{{option.name}}</mat-radio-button>
-                }
-        </mat-radio-group>
-    }
-
-    @case(inputFieldTypes.DATE) {
-        <mat-form-field [floatLabel]="floatLabel">
-            @if(label) {
-                <mat-label> {{label | translate}}</mat-label>
-            }       
-            <input matInput [matDatepicker]="picker">
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-    }
+  </mat-select>
+</mat-form-field>
+} @case(inputFieldTypes.NUMBER) {
+<mat-form-field
+  [appearance]="formFieldAppearance"
+  [floatLabel]="floatLabel"
+  [class.preIconContainer]="preIcon"
+  [class.postIconContainer]="postIcon"
+>
+  @if(label) {
+  <mat-label> {{ label | translate }}</mat-label>
+  }
+  <input
+    matInput
+    type="number"
+    [placeholder]="placeHolder"
+    [min]="minValue"
+    [readonly]="readOnly && 'readOnly'"
+    [disabled]="disabled"
+  />
+</mat-form-field>
+<span
+  class="material-symbols-outlined"
+  [class.prePosition]="preIcon"
+  [class.postPosition]="postIcon"
+  [class.input-icon]="preIcon || postIcon"
+>
+  {{ icon }}
+</span>
+} @case(inputFieldTypes.SLIDE) {
+<mat-slide-toggle>{{ label | translate }}</mat-slide-toggle>
+} @case(inputFieldTypes.FILE) { @if(label) {
+<mat-label> {{ label | translate }}</mat-label>
 }
-
-
-@if(actionButtonLabel) {
-    <button mat-raised-button>{{actionButtonLabel}}</button>
+<input type="file" [accept]="fileTypes" [disabled]="disabled" />
+} @case(inputFieldTypes.RADIO) {
+<mat-radio-group>
+  @for(option of optionList; track option.name) {
+  <mat-radio-button [value]="option.value">{{ option.name }}</mat-radio-button>
+  }
+</mat-radio-group>
+} @case(inputFieldTypes.DATE) {
+<mat-form-field [floatLabel]="floatLabel">
+  @if(label) {
+  <mat-label> {{ label | translate }}</mat-label>
+  }
+  <input matInput [matDatepicker]="picker" [disabled]="disabled" />
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+} } @if(actionButtonLabel) {
+<button mat-raised-button>{{ actionButtonLabel }}</button>
 }

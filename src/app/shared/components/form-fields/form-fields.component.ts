@@ -47,9 +47,16 @@ export class FormFieldsComponent {
   @Input() formFieldAppearance: MatFormFieldAppearance = 'fill';
   @Input() floatLabel: FloatLabelType = 'auto';
   @Input() subscriptSizing: SubscriptSizing = 'dynamic';
-  @Input() className!: string;
+  @Input() classNames!: string[];
   @Input() textAreaMinRow!: number;
   @Input() textAreaMaxRow!: number;
+  @Input() preIcon!: boolean;
+  @Input() postIcon!: boolean;
+  @Input() icon!: string;
+  @Input() readOnly!: boolean;
+  @Input() minValue!: number;
+  @Input() disabled!: boolean;
+
   @ViewChild('autosize') autosize!: CdkTextareaAutosize;
 
   translationService = inject(TranslationService);
@@ -57,7 +64,7 @@ export class FormFieldsComponent {
 
 
   @HostBinding('class') get hostClasses(): string {
-    return this.className ? ` ${this.className}` : '';
+    
+      return this.classNames.length > 0 ? this.classNames.join(' ') : ''
   }
-
 }
