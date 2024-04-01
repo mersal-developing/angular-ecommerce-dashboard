@@ -14,6 +14,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { TranslationService } from '../../services';
 import { InputFieldsTypes } from '../../models';
 import { TranslateModule } from '@ngx-translate/core';
+import { MAT_DATE_LOCALE, provideNativeDateAdapter } from '@angular/material/core';
 
 @Component({
   selector: 'app-form-fields',
@@ -31,6 +32,7 @@ import { TranslateModule } from '@ngx-translate/core';
     MatDatepickerModule,
     TranslateModule
   ],
+  providers: [provideNativeDateAdapter(), { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   templateUrl: './form-fields.component.html',
   styleUrl: './form-fields.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -65,6 +67,6 @@ export class FormFieldsComponent {
 
   @HostBinding('class') get hostClasses(): string {
     
-      return this.classNames.length > 0 ? this.classNames.join(' ') : ''
+      return (this.classNames && this.classNames.length > 0) ? this.classNames.join(' ') : ''
   }
 }

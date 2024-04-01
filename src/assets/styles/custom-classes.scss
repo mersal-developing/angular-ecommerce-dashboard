@@ -77,7 +77,6 @@
   }
 }
 
-
 .create-product__sections-menu {
   .mat-mdc-tab-labels {
     flex-direction: column;
@@ -113,6 +112,7 @@
     margin-left: 3rem;
     margin-right: 3rem;
     flex-basis: 70%;
+    height: 100vh;
   }
 }
 
@@ -124,7 +124,7 @@ mat-form-field.postIconContainer {
 }
 
 mat-form-field.preIconContainer {
- 
+
   .mat-mdc-form-field-infix {
     max-width: 99%;
   }
@@ -160,8 +160,9 @@ mat-form-field.postIconContainer {
   mat-form-field.preIconContainer {
     .mdc-notched-outline {
       transform: translateX(36px);
-    }}
-  
+    }
+  }
+
 }
 
 [dir=rtl] {
@@ -176,12 +177,14 @@ mat-form-field.postIconContainer {
   mat-form-field.preIconContainer {
     .mdc-notched-outline {
       transform: translateX(-36px);
-    }}
+    }
+  }
 
 }
 
+
 .input-icon {
-  @apply bg-gray-400;
+  @apply bg-light-grey;
   color: #fff;
   font-size: 1.3rem;
   padding: 17px 10px;

@@ -97,7 +97,7 @@
         [type]="'number'"
         [formFieldAppearance]="'outline'"
         [classNames]="['create-produc-input', 'relative']"
-        [minValue]="0"
+        [minValue]="0" 
         [icon]="'attach_money'"
         [preIcon]="true"
       ></app-form-fields>
@@ -135,6 +135,43 @@
         [minValue]="0"
         [icon]="'attach_money'"
         [preIcon]="true"
+      ></app-form-fields>
+    </div>
+
+    <div class="flex items-baseline justify-start">
+      <div class="mr-3 w-32">
+        <label for="sale-price">
+          {{ "sale status" | translate | titlecase }}
+        </label>
+      </div>
+      <app-form-fields
+        [type]="'slideToggle'"
+      ></app-form-fields>
+    </div>
+
+    <div class="flex items-baseline justify-start mt-5">
+      <div class="mr-3 w-32 ">
+        <label for="sale-price">
+          {{ "sale start date" | translate | titlecase }}
+        </label>
+      </div>
+      <app-form-fields
+        [type]="'date'"
+        [formFieldAppearance]="'outline'"
+
+      ></app-form-fields>
+    </div>
+
+    <div class="flex items-baseline justify-start">
+      <div class="mr-3 w-32">
+        <label for="sale-price">
+          {{ "sale end date" | translate | titlecase }}
+        </label>
+      </div>
+      <app-form-fields
+        [type]="'date'"
+        [formFieldAppearance]="'outline'"
+
       ></app-form-fields>
     </div>
   </div>
