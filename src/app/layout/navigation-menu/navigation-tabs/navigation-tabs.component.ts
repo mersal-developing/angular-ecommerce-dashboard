@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, forwardRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, forwardRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
@@ -6,6 +6,7 @@ import { NavigationItemComponent } from "../navigation-item/navigation-item.comp
 import { NavigationCollapsableComponent } from "../navigation-collapsable/navigation-collapsable.component";
 import { TranslateModule } from '@ngx-translate/core';
 import { NavigationItem, NavItemType } from '../../models';
+import { RoutingService } from 'src/app/core/services';
 
 @Component({
   selector: 'app-navigation-tabs',
@@ -24,10 +25,16 @@ import { NavigationItem, NavItemType } from '../../models';
 })
 
 export class NavigationTabsComponent {
-  @Input({ required: true }) item!: NavigationItem; 
+  @Input({ required: true }) item!: NavigationItem;
+  routingService = inject(RoutingService);
+
   openNextTab = false;
   navItemType = NavItemType;
   currentSelectedRootTab = 0;
+
+  get isActiveTab(): boolean {
+    return this.routingService.currentLocation.includes(this.item.title.toLowerCase());
+  }
 
   openTap() {
     this.openNextTab = true;

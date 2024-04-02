@@ -1,43 +1,71 @@
 <mat-tab-group class="nav-tab-group" [selectedIndex]="currentSelectedRootTab">
-    <mat-tab label="tab1">
-        <div class="flex justify-between items-center cursor-pointer py-2 px-2 hover-link mb-1" (click)="openTap()">
-            <div class="flex items-center">
-                @if(item.icon) {
-                    <mat-icon [fontIcon]="item.icon" class="ltr:mr-1 rtl:ml-1 text-white text-base"></mat-icon>
-                }
-               
-                <span class="text-white text-base nav-fold">{{item.title | translate | titlecase}}</span>
-            </div>
-            <mat-icon fontIcon="keyboard_arrow_right" class="text-white nav-fold rtl:hidden"></mat-icon>
-            <mat-icon fontIcon="keyboard_arrow_left" class="text-white nav-fold ltr:hidden"></mat-icon>
-        </div>
-    </mat-tab>
-    
-    @if(openNextTab) {
-        <mat-tab label="tab2">
-            <div class="children">
-                <div class="flex justify-start items-center cursor-pointer tab-back-button" (click)="closeTab()">
-                    <mat-icon fontIcon="keyboard_arrow_right" class="text-white ltr:hidden"></mat-icon>
-                    <mat-icon fontIcon="keyboard_arrow_left" class="text-white rtl:hidden"></mat-icon>
-                    <span class="text-secondary-300 text-base nav-fold">{{item.title | translate}}</span>
-                </div>
+  <mat-tab label="tab1">
+    <div
+      class="flex justify-between items-center cursor-pointer py-2 px-2 hover-link mb-1"
+      [class.active-tab]="isActiveTab"
+      (click)="openTap()"
+    >
+      <div class="flex items-center">
+        @if(item.icon) {
+        <mat-icon
+          [fontIcon]="item.icon"
+          class="ltr:mr-1 rtl:ml-1 text-white text-base"
+        ></mat-icon>
+        }
 
-                    @for(child of item.children; track child.id) {
-                        @switch (child.type) {
-                            @case(navItemType.Item){
-                                <app-navigation-item [item]="child" class="nav-collapse"></app-navigation-item>
-                            }
-                            @case(navItemType.Collapsable) {
-                                <app-navigation-collapsable [item]="child" class="nav-collapse nav-collapse-l2"></app-navigation-collapsable>
-                            }
-                            @case(navItemType.Tabs) {
-                                <app-navigation-tabs [item]="child" class="nav-collapse"></app-navigation-tabs>
-                            }
-                        }
-                    }
-               
-                </div>
-        </mat-tab>
-    }
+        <span class="text-white text-base nav-fold">{{
+          item.title | translate | titlecase
+        }}</span>
+      </div>
+      <mat-icon
+        fontIcon="keyboard_arrow_right"
+        class="text-white nav-fold rtl:!hidden"
+      ></mat-icon>
+      <mat-icon
+        fontIcon="keyboard_arrow_left"
+        class="text-white nav-fold ltr:!hidden"
+      ></mat-icon>
+    </div>
+  </mat-tab>
 
+  @if(openNextTab) {
+  <mat-tab label="tab2">
+    <div class="children">
+      <div
+        class="flex justify-start items-center cursor-pointer tab-back-button"
+        (click)="closeTab()"
+      >
+        <mat-icon
+          fontIcon="keyboard_arrow_right"
+          class="text-white ltr:!hidden"
+        ></mat-icon>
+        <mat-icon
+          fontIcon="keyboard_arrow_left"
+          class="text-white rtl:!hidden"
+        ></mat-icon>
+        <span class="text-base nav-fold font-semibold text-white">{{
+          item.title | translate
+        }}</span>
+      </div>
+
+      @for(child of item.children; track child.id) { @switch (child.type) {
+      @case(navItemType.Item){
+      <app-navigation-item
+        [item]="child"
+        class="nav-collapse"
+      ></app-navigation-item>
+      } @case(navItemType.Collapsable) {
+      <app-navigation-collapsable
+        [item]="child"
+        class="nav-collapse nav-collapse-l2"
+      ></app-navigation-collapsable>
+      } @case(navItemType.Tabs) {
+      <app-navigation-tabs
+        [item]="child"
+        class="nav-collapse"
+      ></app-navigation-tabs>
+      } } }
+    </div>
+  </mat-tab>
+  }
 </mat-tab-group>

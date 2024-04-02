@@ -6,6 +6,7 @@ import { NavigationTabsComponent } from "../navigation-tabs/navigation-tabs.comp
 import { TranslateModule } from '@ngx-translate/core';
 import { NavigationItem, NavItemType } from '../../models';
 import { TranslationService } from 'src/app/shared/services';
+import { RoutingService } from 'src/app/core/services';
 
 @Component({
   selector: 'app-navigation-collapsable',
@@ -18,18 +19,17 @@ import { TranslationService } from 'src/app/shared/services';
 export class NavigationCollapsableComponent {
   @Input({ required: true }) item!: NavigationItem;
   el = inject(ElementRef);
+  routingService = inject(RoutingService);
 
   isOpen = false;
   navItemType = NavItemType;
   translationService = inject(TranslationService)
 
-  toggle() {
-    this.isOpen = !this.isOpen;
+  get isActiveCollapse(): boolean {
+   return this.routingService.currentLocation.includes(this.item.title.toLowerCase());
   }
 
-  ngOnInit() {
-    let x = this.el;
-    console.log(x);
-
+  toggle() {
+    this.isOpen = !this.isOpen;
   }
 }
