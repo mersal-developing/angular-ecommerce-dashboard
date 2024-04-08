@@ -6,20 +6,19 @@
 
 <div class="create-product flex w-full p-4">
   <div class="create-product__sections-menu flex basis-full">
-    <mat-tab-group class="!flex-row w-full">
+    <mat-tab-group class="lg:!flex-row lg:w-full">
       @for (section of sections; track section.name) {
 
       <mat-tab>
         <ng-template mat-tab-label>
           <div class="flex justify-between items-center space-x-4">
-            <span class="material-symbols-outlined rtl:ml-3">
+            <span class="material-symbols-outlined text-base rtl:ml-3">
               {{ section.icon }}
             </span>
-            <span>
+            <span class="text-slate-950 text-base font-normal tab-name">
               {{ section.name | translate | titlecase }}
             </span>
           </div>
-          
         </ng-template>
         <ng-container #sectionContainer></ng-container>
       </mat-tab>
@@ -34,150 +33,121 @@
 
 <ng-template #generalTemplate>
   <div class="create-product__form w-full mt-4">
-    <div class="flex items-baseline justify-start">
-      <div class="mr-3 w-32">
+    <div class="flex items-baseline justify-start form-row">
+
+      <div class="mr-3 w-36">
         <label for="name">
           {{ "name" | translate | titlecase }}
         </label>
         <ng-container [ngTemplateOutlet]="requiredTemplate"></ng-container>
       </div>
-      <app-form-fields
-        [label]="'name'"
-        [type]="'text'"
-        [formFieldAppearance]="'outline'"
-        [classNames]="['create-produc-input']"
-      ></app-form-fields>
+
+      <app-form-fields [label]="'name'" [type]="'text'" [formFieldAppearance]="'outline'"
+        [classNames]="['create-produc-input']"></app-form-fields>
     </div>
 
-    <div class="flex items-baseline justify-start mt-5">
-      <div class="mr-3 w-32">
+    <div class="flex items-baseline justify-start mt-5 form-row">
+      <div class="mr-3 w-36">
+        <label for="description">
+          {{ "short description" | translate | titlecase }}
+        </label>
+        <ng-container [ngTemplateOutlet]="requiredTemplate"></ng-container>
+      </div>
+      <app-form-fields [label]="'product description'" [type]="'textarea'" [formFieldAppearance]="'outline'"
+        [classNames]="['create-produc-input']" [textAreaMinRow]="4"></app-form-fields>
+    </div>
+
+    <div class="flex justify-start lg:mt-5 form-row items-center">
+      <div class="mr-3 w-36">
         <label for="description">
           {{ "description" | translate | titlecase }}
         </label>
         <ng-container [ngTemplateOutlet]="requiredTemplate"></ng-container>
       </div>
-      <app-form-fields
-        [label]="'product description'"
-        [type]="'textarea'"
-        [formFieldAppearance]="'outline'"
-        [classNames]="['create-produc-input']"
-        [textAreaMinRow]="4"
-      ></app-form-fields>
+      <app-form-fields [type]="'cdk'" [classNames]="['create-produc-input']"></app-form-fields>
     </div>
   </div>
 </ng-template>
 
 <ng-template #inventoryTemplate>
   <div class="create-product__form w-full mt-4">
-    <div class="flex items-baseline justify-start">
-      <div class="mr-3 w-32">
+    <div class="flex items-baseline justify-start form-row">
+      <div class="mr-3 w-36">
         <label for="amount">
           {{ "amount" | translate | titlecase }}
         </label>
         <ng-container [ngTemplateOutlet]="requiredTemplate"></ng-container>
       </div>
-      <app-form-fields
-        [label]="'amount'"
-        [type]="'number'"
-        [formFieldAppearance]="'outline'"
-        [classNames]="['create-produc-input']"
-        [minValue]="2"
-      ></app-form-fields>
+      <app-form-fields [label]="'amount'" [type]="'number'" [formFieldAppearance]="'outline'"
+        [classNames]="['create-produc-input']" [minValue]="2"></app-form-fields>
     </div>
 
-    <div class="flex items-baseline justify-start">
-      <div class="mr-3 w-32">
+    <div class="flex items-baseline justify-start form-row">
+      <div class="mr-3 w-36">
         <label for="price">
           {{ "price" | translate | titlecase }}
         </label>
         <ng-container [ngTemplateOutlet]="requiredTemplate"></ng-container>
       </div>
-      <app-form-fields
-        [label]="'price'"
-        [type]="'number'"
-        [formFieldAppearance]="'outline'"
-        [classNames]="['create-produc-input', 'relative']"
-        [minValue]="0" 
-        [icon]="'attach_money'"
-        [preIcon]="true"
-      ></app-form-fields>
+      <app-form-fields [label]="'price'" [type]="'number'" [formFieldAppearance]="'outline'"
+        [classNames]="['create-produc-input', 'relative']" [minValue]="0" [icon]="'attach_money'"
+        [preIcon]="true"></app-form-fields>
     </div>
 
-    <div class="flex items-baseline justify-start">
-      <div class="mr-3 w-32">
+    <div class="flex items-baseline justify-start form-row">
+      <div class="mr-3 w-36">
         <label for="discount">
           {{ "discount" | translate | titlecase }}
         </label>
       </div>
-      <app-form-fields
-        [label]="'discount'"
-        [type]="'number'"
-        [formFieldAppearance]="'outline'"
-        [classNames]="['create-produc-input']"
-        [minValue]="0"
-        [icon]="'percent'"
-        [postIcon]="true"
-      ></app-form-fields>
+      <app-form-fields [label]="'discount'" [type]="'number'" [formFieldAppearance]="'outline'"
+        [classNames]="['create-produc-input', 'relative']" [minValue]="0" [icon]="'percent'"
+        [postIcon]="true"></app-form-fields>
     </div>
 
-    <div class="flex items-baseline justify-start">
-      <div class="mr-3 w-32">
+    <div class="flex items-baseline justify-start form-row">
+      <div class="mr-3 w-36">
         <label for="sale-price">
           {{ "sale price" | translate | titlecase }}
         </label>
       </div>
-      <app-form-fields
-        [type]="'number'"
-        [formFieldAppearance]="'outline'"
-        [classNames]="['create-produc-input', 'relative']"
-        [readOnly]="true"
-        [disabled]="true"
-        [minValue]="0"
-        [icon]="'attach_money'"
-        [preIcon]="true"
-      ></app-form-fields>
+      <app-form-fields [type]="'number'" [formFieldAppearance]="'outline'"
+        [classNames]="['create-produc-input', 'relative']" [readOnly]="true" [disabled]="true" [minValue]="0"
+        [icon]="'attach_money'" [preIcon]="true"></app-form-fields>
     </div>
 
-    <div class="flex items-baseline justify-start">
-      <div class="mr-3 w-32">
+    <div class="flex items-baseline justify-start form-row">
+      <div class="mr-3 w-36">
         <label for="sale-price">
           {{ "sale status" | translate | titlecase }}
         </label>
       </div>
-      <app-form-fields
-        [type]="'slideToggle'"
-      ></app-form-fields>
+      <app-form-fields [type]="'slideToggle'" class="w-10"></app-form-fields>
     </div>
 
-    <div class="flex items-baseline justify-start mt-5">
-      <div class="mr-3 w-32 ">
+    <div class="flex items-baseline justify-start mt-5 form-row">
+      <div class="mr-3 w-36">
         <label for="sale-price">
           {{ "sale start date" | translate | titlecase }}
         </label>
       </div>
-      <app-form-fields
-        [type]="'date'"
-        [formFieldAppearance]="'outline'"
-
-      ></app-form-fields>
+      <app-form-fields [type]="'date'" [formFieldAppearance]="'outline'"
+        [classNames]="['create-produc-input']"></app-form-fields>
     </div>
 
-    <div class="flex items-baseline justify-start">
-      <div class="mr-3 w-32">
+    <div class="flex items-baseline justify-start form-row">
+      <div class="mr-3 w-36">
         <label for="sale-price">
           {{ "sale end date" | translate | titlecase }}
         </label>
       </div>
-      <app-form-fields
-        [type]="'date'"
-        [formFieldAppearance]="'outline'"
-
-      ></app-form-fields>
+      <app-form-fields [type]="'date'" [formFieldAppearance]="'outline'"
+        [classNames]="['create-produc-input']"></app-form-fields>
     </div>
   </div>
 </ng-template>
 
-<ng-template #setupTemplate> s </ng-template>
+<ng-template #setupTemplate> </ng-template>
 
 <ng-template #imagesTemplate> d </ng-template>
 

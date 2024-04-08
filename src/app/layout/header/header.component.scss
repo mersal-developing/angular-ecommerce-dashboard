@@ -1,4 +1,8 @@
 :host {
+    .header-container {
+        background: #efefe7;
+    }
+
     .home-icon {
         @apply text-custom-grey cursor-pointer text-[28px];
         width: 28px !important;

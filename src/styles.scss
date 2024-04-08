@@ -3,6 +3,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@import 'assets/styles/mixins.scss';
 @import 'assets/styles/custom-classes.scss';
 @import 'assets/styles/override/angular-material.scss';
 
@@ -16,8 +17,4 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-
-.mdc-notched-outline__notch {
-  border-right: none !important;
-}
 

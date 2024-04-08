@@ -6,5 +6,6 @@ export enum InputFieldsTypes {
     FILE = 'file',
     RADIO = 'radio',
     NUMBER = 'number',
-    DATE = 'date'
+    DATE = 'date',
+    CDK = 'cdk'
 }

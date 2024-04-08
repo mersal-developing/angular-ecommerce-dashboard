@@ -9,6 +9,10 @@
   @apply hover:bg-primary-700 hover:font-medium hover:rounded-md;
 }
 
+.mdc-notched-outline__notch {
+  border-right: none !important;
+}
+
 .nav-menu-collapsed {
   width: 6rem !important;
   align-items: center;
@@ -39,7 +43,6 @@
   }
 
 }
-
 
 .rtl {
   direction: rtl;
@@ -72,85 +75,51 @@
 .create-produc-input {
   flex-grow: 1;
 
-  mat-form-field {
-    width: 50%;
-  }
-}
+  @include mobile() {
+    width: 100%;
 
-.create-product__sections-menu {
-  .mat-mdc-tab-labels {
-    flex-direction: column;
-    align-items: start;
-
-    .mat-mdc-tab.mdc-tab {
+    mat-form-field {
       width: 100%;
-      justify-content: flex-start;
+      margin-top: 8px;
     }
   }
 
-  .mat-mdc-tab-header {
-    flex-basis: 15%;
+  @include desktop() {
+
+    mat-form-field,
+    .mat-mdc-form-field {
+      width: 60%;
+    }
   }
 
-  .mdc-tab-indicator {
-    display: none;
-  }
-
-  .mdc-tab--active {
-    @apply bg-primary-800 rounded-md font-medium;
-  }
-
-  .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
-    @apply hover:text-custom-light-grey text-custom-light-grey focus:text-custom-light-grey;
-  }
-
-  .mat-mdc-tab.mdc-tab--active:focus .mdc-tab__text-label {
-    @apply text-custom-light-grey
-  }
-
-  .mat-mdc-tab-body-wrapper {
-    margin-left: 3rem;
-    margin-right: 3rem;
-    flex-basis: 70%;
-    height: 100vh;
-  }
-}
-
-mat-form-field.preIconContainer,
-mat-form-field.postIconContainer {
-  .mdc-notched-outline {
-    width: calc(100% - 35px);
-  }
-}
-
-mat-form-field.preIconContainer {
-
-  .mat-mdc-form-field-infix {
-    max-width: 99%;
-  }
-
-}
-
-mat-form-field.postIconContainer {
-  .mdc-notched-outline {
-    transform: translateX(-4px);
-
-  }
-
-  .mat-mdc-form-field-infix {
-    max-width: 92%;
+  mat-form-field {
+    .mdc-notched-outline {
+      background-color: #f8f8f8;
+    }
   }
 }
 
 .prePosition {
   top: 0;
+
+  @include mobile() {
+    top: 7px;
+  }
+
   position: absolute;
 }
 
-
 [dir=ltr] {
   .postPosition {
-    transform: translate(-39px, 4px);
+    @include desktop() {
+      transform: translate(-39px, 4px);
+    }
+
+    @include mobile() {
+      position: absolute;
+      right: -1px;
+      top: 7px;
+    }
   }
 
   .prePosition {
@@ -167,7 +136,15 @@ mat-form-field.postIconContainer {
 
 [dir=rtl] {
   .postPosition {
-    transform: translate(1.95rem, 4px);
+    @include desktop() {
+      transform: translate(1.95rem, 4px);
+    }
+
+    @include mobile() {
+      position: absolute;
+      left: -6px;
+      top: 7px;
+    }
   }
 
   .prePosition {
@@ -182,10 +159,26 @@ mat-form-field.postIconContainer {
 
 }
 
-
 .input-icon {
-  @apply bg-light-grey;
-  color: #fff;
+  background-color: #efefe7;
+  color: #7c7b7b;
   font-size: 1.3rem;
   padding: 17px 10px;
+}
+
+.create-product {
+  &__form {
+    @include mobile() {
+      app-cdk-editor {
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+
+    .ck-editor__editable_inline {
+      min-height: 300px !important;
+      background-color: #f8f8f8 !important;
+      border: unset !important;
+    }
+  }
 }

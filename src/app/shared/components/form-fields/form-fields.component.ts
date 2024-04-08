@@ -15,6 +15,7 @@ import { TranslationService } from '../../services';
 import { InputFieldsTypes } from '../../models';
 import { TranslateModule } from '@ngx-translate/core';
 import { MAT_DATE_LOCALE, provideNativeDateAdapter } from '@angular/material/core';
+import { CdkEditorComponent } from '../cdk-editor/cdk-editor.component';
 
 @Component({
   selector: 'app-form-fields',
@@ -30,7 +31,8 @@ import { MAT_DATE_LOCALE, provideNativeDateAdapter } from '@angular/material/cor
     ReactiveFormsModule,
     TextFieldModule,
     MatDatepickerModule,
-    TranslateModule
+    TranslateModule,
+    CdkEditorComponent
   ],
   providers: [provideNativeDateAdapter(), { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   templateUrl: './form-fields.component.html',
