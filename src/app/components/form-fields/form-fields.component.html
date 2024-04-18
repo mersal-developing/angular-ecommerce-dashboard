@@ -2,7 +2,7 @@
 
 @case(inputFieldTypes.TEXT) {
 <mat-form-field [appearance]="formFieldAppearance" [floatLabel]="floatLabel" [subscriptSizing]="subscriptSizing"
-	[class.preIconContainer]="preIcon" [class.postIconContainer]="postIcon" class="lg:flex-row">
+	class="lg:flex-row">
 
 	@if(label) {
 	<mat-label> {{ label | translate }}</mat-label>
@@ -11,12 +11,32 @@
 	<input matInput type="text" [required]="required" [placeholder]="placeHolder" [readonly]="readOnly && 'readOnly'"
 		[disabled]="disabled" />
 
-</mat-form-field>
+	@if(iconPrefix) {
+	<span class="material-symbols-outlined" matTextPrefix>
+		{{ iconPrefix }}
+	</span>
+	}
 
-<span class="material-symbols-outlined" [class.prePosition]="preIcon" [class.postPosition]="postIcon"
-	[class.input-icon]="preIcon || postIcon">
-	{{ icon }}
-</span>
+	@if(textPrefix) {
+	<span matTextPrefix>
+		{{ textPrefix }}
+	</span>
+	}
+
+
+	@if(iconSuffix) {
+	<span class="material-symbols-outlined" matTextSuffix>
+		{{ iconSuffix}}
+	</span>
+	}
+
+	@if(textSuffix) {
+	<span matTextSuffix>
+		{{ textSuffix }}
+	</span>
+	}
+	
+</mat-form-field>
 }
 
 @case(inputFieldTypes.TEXTAREA) {
@@ -52,20 +72,41 @@
 }
 
 @case(inputFieldTypes.NUMBER) {
-<mat-form-field [appearance]="formFieldAppearance" [floatLabel]="floatLabel" [class.preIconContainer]="preIcon"
-	[class.postIconContainer]="postIcon">
+<mat-form-field [appearance]="formFieldAppearance" [floatLabel]="floatLabel">
 
 	@if(label) {
 	<mat-label> {{ label | translate }}</mat-label>
 	}
 
 	<input matInput type="number" [placeholder]="placeHolder" [min]="minValue" [readonly]="readOnly && 'readOnly'"
-		[disabled]="disabled" />
+		[disabled]="disabled" [class.hide-spinner-button]="hideNumberSpinner" />
+
+	@if(iconPrefix) {
+	<span class="material-symbols-outlined" matTextPrefix>
+		{{ iconPrefix }}
+	</span>
+	}
+
+	@if(textPrefix) {
+	<span matTextPrefix>
+		{{ textPrefix }}
+	</span>
+	}
+
+
+	@if(iconSuffix) {
+	<span class="material-symbols-outlined" matTextSuffix>
+		{{ iconSuffix}}
+	</span>
+	}
+
+	@if(textSuffix) {
+	<span matTextSuffix>
+		{{ textSuffix }}
+	</span>
+	}
+
 </mat-form-field>
-<span class="material-symbols-outlined" [class.prePosition]="preIcon" [class.postPosition]="postIcon"
-	[class.input-icon]="preIcon || postIcon">
-	{{ icon }}
-</span>
 }
 
 @case(inputFieldTypes.SLIDE) {

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatProgressBarModule, ProgressBarMode } from '@angular/material/progress-bar';
-import { LoadingBarService } from '../../services';
+import { LoadingBarService } from 'src/app/services';
 import { Observable } from 'rxjs';
 
 @Component({

@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatMenuModule } from '@angular/material/menu';
-import { TranslationService } from '../../services';
+import { TranslationService } from 'src/app/services';
 import { Observable } from 'rxjs';
-import { LanguagePipe } from "../../pipes/language.pipe";
+import { LanguagePipe } from "src/app/pipes/language.pipe";
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({

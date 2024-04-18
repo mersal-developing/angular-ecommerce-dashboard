@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { NavigationItemComponent } from "../navigation-item/navigation-item.component";
 import { NavigationCollapsableComponent } from "../navigation-collapsable/navigation-collapsable.component";
 import { TranslateModule } from '@ngx-translate/core';
-import { NavigationItem, NavItemType } from '../../models';
+import { NavItemType, NavigationItem } from 'src/app/models';
 import { RoutingService } from 'src/app/core/services';
 
 @Component({

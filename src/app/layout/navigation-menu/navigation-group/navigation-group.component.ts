@@ -5,7 +5,7 @@ import { NavigationCollapsableComponent } from "../navigation-collapsable/naviga
 import { NavigationTabsComponent } from "../navigation-tabs/navigation-tabs.component";
 import { MatIconModule } from '@angular/material/icon';
 import { TranslateModule } from '@ngx-translate/core';    
-import { NavigationItem, NavItemType } from '../../models';
+import { NavItemType, NavigationItem } from 'src/app/models';
 
 @Component({
   selector: 'app-navigation-group',

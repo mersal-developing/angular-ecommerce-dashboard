@@ -27,10 +27,6 @@
   </div>
 </div>
 
-<ng-template #requiredTemplate>
-  <label class="text-primary-400"> * </label>
-</ng-template>
-
 <ng-template #generalTemplate>
   <div class="create-product__form w-full mt-4">
     <div class="flex items-baseline justify-start form-row">
@@ -42,8 +38,7 @@
         <ng-container [ngTemplateOutlet]="requiredTemplate"></ng-container>
       </div>
 
-      <app-form-fields [label]="'name'" [type]="'text'" [formFieldAppearance]="'outline'"
-        [classNames]="['create-produc-input']"></app-form-fields>
+      <app-form-fields [placeHolder]="'name'" [type]="'text'" [classNames]="['create-produc-input']"></app-form-fields>
     </div>
 
     <div class="flex items-baseline justify-start mt-5 form-row">
@@ -53,8 +48,8 @@
         </label>
         <ng-container [ngTemplateOutlet]="requiredTemplate"></ng-container>
       </div>
-      <app-form-fields [label]="'product description'" [type]="'textarea'" [formFieldAppearance]="'outline'"
-        [classNames]="['create-produc-input']" [textAreaMinRow]="4"></app-form-fields>
+      <app-form-fields [placeHolder]="'product description'" [type]="'textarea'" [classNames]="['create-produc-input']"
+        [textAreaMinRow]="4"></app-form-fields>
     </div>
 
     <div class="flex justify-start lg:mt-5 form-row items-center">
@@ -78,8 +73,8 @@
         </label>
         <ng-container [ngTemplateOutlet]="requiredTemplate"></ng-container>
       </div>
-      <app-form-fields [label]="'amount'" [type]="'number'" [formFieldAppearance]="'outline'"
-        [classNames]="['create-produc-input']" [minValue]="2"></app-form-fields>
+      <app-form-fields [placeHolder]="'amount'" [type]="'number'" [classNames]="['create-produc-input']"
+        [minValue]="2"></app-form-fields>
     </div>
 
     <div class="flex items-baseline justify-start form-row">
@@ -89,9 +84,8 @@
         </label>
         <ng-container [ngTemplateOutlet]="requiredTemplate"></ng-container>
       </div>
-      <app-form-fields [label]="'price'" [type]="'number'" [formFieldAppearance]="'outline'"
-        [classNames]="['create-produc-input', 'relative']" [minValue]="0" [icon]="'attach_money'"
-        [preIcon]="true"></app-form-fields>
+      <app-form-fields [placeHolder]="'price'" [type]="'number'" [classNames]="['create-produc-input', 'relative']"
+        [minValue]="0" [textPrefix]="'$&nbsp;'"></app-form-fields>
     </div>
 
     <div class="flex items-baseline justify-start form-row">
@@ -100,9 +94,8 @@
           {{ "discount" | translate | titlecase }}
         </label>
       </div>
-      <app-form-fields [label]="'discount'" [type]="'number'" [formFieldAppearance]="'outline'"
-        [classNames]="['create-produc-input', 'relative']" [minValue]="0" [icon]="'percent'"
-        [postIcon]="true"></app-form-fields>
+      <app-form-fields [placeHolder]="'discount'" [type]="'number'" [classNames]="['create-produc-input', 'relative']"
+        [minValue]="0" [textSuffix]="'%&nbsp;'" [hideNumberSpinner]="true"></app-form-fields>
     </div>
 
     <div class="flex items-baseline justify-start form-row">
@@ -111,9 +104,8 @@
           {{ "sale price" | translate | titlecase }}
         </label>
       </div>
-      <app-form-fields [type]="'number'" [formFieldAppearance]="'outline'"
-        [classNames]="['create-produc-input', 'relative']" [readOnly]="true" [disabled]="true" [minValue]="0"
-        [icon]="'attach_money'" [preIcon]="true"></app-form-fields>
+      <app-form-fields [type]="'number'" [classNames]="['create-produc-input', 'relative']" [readOnly]="true"
+        [disabled]="true" [minValue]="0" [textPrefix]="'$&nbsp;'"></app-form-fields>
     </div>
 
     <div class="flex items-baseline justify-start form-row">
@@ -131,8 +123,7 @@
           {{ "sale start date" | translate | titlecase }}
         </label>
       </div>
-      <app-form-fields [type]="'date'" [formFieldAppearance]="'outline'"
-        [classNames]="['create-produc-input']"></app-form-fields>
+      <app-form-fields [type]="'date'" [classNames]="['create-produc-input']"></app-form-fields>
     </div>
 
     <div class="flex items-baseline justify-start form-row">
@@ -141,8 +132,7 @@
           {{ "sale end date" | translate | titlecase }}
         </label>
       </div>
-      <app-form-fields [type]="'date'" [formFieldAppearance]="'outline'"
-        [classNames]="['create-produc-input']"></app-form-fields>
+      <app-form-fields [type]="'date'" [classNames]="['create-produc-input']"></app-form-fields>
     </div>
   </div>
 </ng-template>
@@ -156,3 +146,8 @@
 <ng-template #shippingTaxTemplate> d </ng-template>
 
 <ng-template #statusTemplate> j </ng-template>
+
+
+<ng-template #requiredTemplate>
+  <label class="text-primary-400"> * </label>
+</ng-template>

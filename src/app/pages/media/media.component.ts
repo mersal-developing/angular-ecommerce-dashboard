@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BreadcrumbsComponent } from "../../shared/components/breadcrumbs/breadcrumbs.component";
+import { BreadcrumbsComponent } from "../../components/breadcrumbs/breadcrumbs.component";
 import { TranslateModule } from '@ngx-translate/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';

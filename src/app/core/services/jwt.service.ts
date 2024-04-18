@@ -1,5 +1,5 @@
 import { Injectable, inject } from "@angular/core";
-import { LocalStorageService } from "src/app/shared/services";
+import { LocalStorageService } from "src/app/services";
 
 @Injectable({ providedIn: "root" })
 export class JwtService {

@@ -11,11 +11,11 @@ import { MatRadioModule } from '@angular/material/radio';
 import { CdkTextareaAutosize, TextFieldModule } from '@angular/cdk/text-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
-import { TranslationService } from '../../services';
-import { InputFieldsTypes } from '../../models';
 import { TranslateModule } from '@ngx-translate/core';
 import { MAT_DATE_LOCALE, provideNativeDateAdapter } from '@angular/material/core';
 import { CdkEditorComponent } from '../cdk-editor/cdk-editor.component';
+import { TranslationService } from 'src/app/services';
+import { InputFieldsTypes } from 'src/app/models';
 
 @Component({
   selector: 'app-form-fields',
@@ -54,12 +54,14 @@ export class FormFieldsComponent {
   @Input() classNames!: string[];
   @Input() textAreaMinRow!: number;
   @Input() textAreaMaxRow!: number;
-  @Input() preIcon!: boolean;
-  @Input() postIcon!: boolean;
-  @Input() icon!: string;
+  @Input() textPrefix!: string;
+  @Input() iconPrefix!: string;
+  @Input() textSuffix!: string;
+  @Input() iconSuffix!: string;
   @Input() readOnly!: boolean;
   @Input() minValue!: number;
   @Input() disabled!: boolean;
+  @Input() hideNumberSpinner!:boolean;
 
   @ViewChild('autosize') autosize!: CdkTextareaAutosize;
 

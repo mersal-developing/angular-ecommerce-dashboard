@@ -8,11 +8,11 @@ import { NavigationItemComponent } from './navigation-item/navigation-item.compo
 import { NavigationCollapsableComponent } from './navigation-collapsable/navigation-collapsable.component';
 import { NavigationGroupComponent } from './navigation-group/navigation-group.component';
 import { NavigationTabsComponent } from './navigation-tabs/navigation-tabs.component';
-import { LocalStorageService, UtilitiesService } from "src/app/shared/services";
+import { LocalStorageService, UtilitiesService } from "src/app/services";
 
 import { RouterLink } from '@angular/router';
 import { NavigationMenuService } from 'src/app/layout/service';
-import { NavigationItem, NavItemType, MenuOpenStatus } from '../models';
+import { MenuOpenStatus, NavItemType, NavigationItem } from 'src/app/models';
 
 @Component({
   selector: 'app-navigation-menu',
@@ -21,7 +21,6 @@ import { NavigationItem, NavItemType, MenuOpenStatus } from '../models';
   styleUrls: ['./navigation-menu.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    // CommonModule,
     NavigationItemComponent,
     NavigationCollapsableComponent,
     NavigationGroupComponent,

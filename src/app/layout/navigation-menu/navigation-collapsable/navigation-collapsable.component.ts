@@ -4,9 +4,9 @@ import { CommonModule } from '@angular/common';
 import { NavigationItemComponent } from '../navigation-item/navigation-item.component';
 import { NavigationTabsComponent } from "../navigation-tabs/navigation-tabs.component";
 import { TranslateModule } from '@ngx-translate/core';
-import { NavigationItem, NavItemType } from '../../models';
-import { TranslationService } from 'src/app/shared/services';
+import { TranslationService } from 'src/app/services';
 import { RoutingService } from 'src/app/core/services';
+import { NavItemType, NavigationItem } from 'src/app/models';
 
 @Component({
   selector: 'app-navigation-collapsable',

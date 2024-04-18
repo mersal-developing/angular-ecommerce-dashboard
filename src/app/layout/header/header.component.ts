@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
-import { LanguageButtonComponent } from 'src/app/shared/components/language-button/language-button.component';
-import { UserProfileDropdownComponent } from 'src/app/shared/components/user-profile-dropdown/user-profile-dropdown.component';
-import { UtilitiesService } from 'src/app/shared/services';
+import { LanguageButtonComponent } from 'src/app/components/language-button/language-button.component';
+import { UserProfileDropdownComponent } from 'src/app/components/user-profile-dropdown/user-profile-dropdown.component';
+import { UtilitiesService } from 'src/app/services';
 import { NavigationMenuService } from 'src/app/layout/service';
-import { MenuOpenStatus } from '../models';
+import { MenuOpenStatus } from 'src/app/models';
 
 @Component({
     selector: 'app-header',

@@ -6,7 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MatIconModule } from '@angular/material/icon';
 import { DOCUMENT } from '@angular/common';
 import { ActionButtonsComponent } from "../action-buttons/action-buttons.component";
-import { ApiService } from '../../services';
+import { ApiService } from 'src/app/services';
 import { Router } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 

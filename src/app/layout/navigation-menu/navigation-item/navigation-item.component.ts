@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { NavigationItem, LinkTargetType } from '../../models';
+import { LinkTargetType, NavigationItem } from 'src/app/models';
 
 @Component({
   selector: 'app-navigation-item',

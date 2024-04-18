@@ -9,35 +9,35 @@ export const routes: Routes = [
     },
     {
         path: DashboardRoutes.Dashboard,
-        loadComponent: () => import('./modules/dashboard/dashboard.component').then((c) => c.DashboardComponent),
+        loadComponent: () => import('./pages/dashboard/dashboard.component').then((c) => c.DashboardComponent),
         title: 'DashBoard'
     },
     {
         path: `${DashboardRoutes.Products}/${DashboardRoutes.Create}`,
-        loadComponent: () => import('./modules/products/create-product/create-product.component').then((c) => c.CreateProductComponent),
+        loadComponent: () => import('./pages/products/create-product/create-product.component').then((c) => c.CreateProductComponent),
         title: 'Create-Products',
         pathMatch: 'full'
     },
     {
         path: DashboardRoutes.Products,
-        loadComponent: () => import('./modules/products/products.component').then((c) => c.ProductsComponent),
+        loadComponent: () => import('./pages/products/products.component').then((c) => c.ProductsComponent),
         title: 'Products',
         pathMatch: 'full'
 
     },
     {
         path: DashboardRoutes.Media,
-        loadComponent: () => import('./modules/media/media.component').then((c) => c.MediaComponent),
+        loadComponent: () => import('./pages/media/media.component').then((c) => c.MediaComponent),
         title: 'Media'
     },
     {
         path: DashboardRoutes.Customers,
-        loadComponent: () => import('./modules/customers/customers.component').then((c) => c.CustomersComponent),
+        loadComponent: () => import('./pages/customers/customers.component').then((c) => c.CustomersComponent),
         title: 'Customers'
     },
     {
         path: DashboardRoutes.Orders,
-        loadComponent: () => import('./modules/orders/orders.component').then((c) => c.OrdersComponent),
+        loadComponent: () => import('./pages/orders/orders.component').then((c) => c.OrdersComponent),
         title: 'Orders'
     },
 ];

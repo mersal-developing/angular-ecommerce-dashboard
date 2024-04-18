@@ -93,7 +93,9 @@
   }
 
   mat-form-field {
-    .mdc-notched-outline {
+
+    .mdc-notched-outline,
+    .mdc-text-field {
       background-color: #f8f8f8;
     }
   }
@@ -127,7 +129,9 @@
   }
 
   mat-form-field.preIconContainer {
-    .mdc-notched-outline {
+
+    .mdc-notched-outline,
+    .mdc-text-field {
       transform: translateX(36px);
     }
   }
@@ -152,7 +156,9 @@
   }
 
   mat-form-field.preIconContainer {
-    .mdc-notched-outline {
+
+    .mdc-notched-outline,
+    .mdc-text-field {
       transform: translateX(-36px);
     }
   }
@@ -172,6 +178,12 @@
       app-cdk-editor {
         width: 100%;
         margin-top: 10px;
+      }
+    }
+
+    @include desktop() {
+      app-cdk-editor {
+        width: 60%;
       }
     }
 

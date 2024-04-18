@@ -139,32 +139,12 @@
                 align-items: flex-start;
             }
         }
-    }
 
-}
-
-mat-form-field.preIconContainer,
-mat-form-field.postIconContainer {
-    .mdc-notched-outline {
-        width: calc(100% - 35px);
-    }
-}
-
-mat-form-field.preIconContainer {
-
-    .mat-mdc-form-field-infix {
-        max-width: 99%;
-    }
-
-}
-
-mat-form-field.postIconContainer {
-    .mdc-notched-outline {
-        transform: translateX(-4px);
-
-    }
-
-    .mat-mdc-form-field-infix {
-        max-width: 92%;
+        .hide-spinner-button {
+            &::-webkit-inner-spin-button,
+            &::-webkit-outer-spin-button {
+                display: none;
+            }
+        }
     }
 }
