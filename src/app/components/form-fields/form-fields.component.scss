@@ -1,0 +1,30 @@
+:host {
+    ::ng-deep {
+        .mdc-switch {
+            width: 3rem !important;
+            transition: all 1s ease-in-out;
+
+            &__track {
+                height: 1.4rem !important;
+                border-radius: 20px !important;
+            }
+        }
+
+        .mat-mdc-slide-toggle.mat-mdc-slide-toggle-checked:not(.mat-disabled) .mdc-switch__shadow {
+            @apply bg-white;
+        }
+
+        .mat-mdc-slide-toggle.mat-mdc-slide-toggle-checked:not(.mat-disabled) .mdc-switch__track::after {
+            @apply bg-primary-700 #{!important};
+        }
+
+        .hide-spinner-button {
+
+            &::-webkit-inner-spin-button,
+            &::-webkit-outer-spin-button {
+                display: none;
+            }
+        }
+
+    }
+}

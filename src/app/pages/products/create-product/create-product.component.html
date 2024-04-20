@@ -5,7 +5,7 @@
 </app-breadcrumbs>
 
 <div class="create-product flex w-full p-4">
-  <div class="create-product__sections-menu flex basis-full">
+  <div class="create-product__sections-menu sections-menu flex basis-full">
     <mat-tab-group class="lg:!flex-row lg:w-full">
       @for (section of sections; track section.name) {
 
@@ -28,7 +28,7 @@
 </div>
 
 <ng-template #generalTemplate>
-  <div class="create-product__form w-full mt-4">
+  <div class="create-product__form w-full mt-4 mobile:mt-5">
     <div class="flex items-baseline justify-start form-row">
 
       <div class="mr-3 w-36">
@@ -38,7 +38,7 @@
         <ng-container [ngTemplateOutlet]="requiredTemplate"></ng-container>
       </div>
 
-      <app-form-fields [placeHolder]="'name'" [type]="'text'" [classNames]="['create-produc-input']"></app-form-fields>
+      <app-form-fields [placeHolder]="'name'" [type]="'text'" [classNames]="['side-section-input']"></app-form-fields>
     </div>
 
     <div class="flex items-baseline justify-start mt-5 form-row">
@@ -48,7 +48,7 @@
         </label>
         <ng-container [ngTemplateOutlet]="requiredTemplate"></ng-container>
       </div>
-      <app-form-fields [placeHolder]="'product description'" [type]="'textarea'" [classNames]="['create-produc-input']"
+      <app-form-fields [placeHolder]="'product description'" [type]="'textarea'" [classNames]="['side-section-input']"
         [textAreaMinRow]="4"></app-form-fields>
     </div>
 
@@ -59,7 +59,7 @@
         </label>
         <ng-container [ngTemplateOutlet]="requiredTemplate"></ng-container>
       </div>
-      <app-form-fields [type]="'cdk'" [classNames]="['create-produc-input']"></app-form-fields>
+      <app-form-fields [type]="'cdk'" [classNames]="['side-section-input']"></app-form-fields>
     </div>
   </div>
 </ng-template>
@@ -73,7 +73,7 @@
         </label>
         <ng-container [ngTemplateOutlet]="requiredTemplate"></ng-container>
       </div>
-      <app-form-fields [placeHolder]="'amount'" [type]="'number'" [classNames]="['create-produc-input']"
+      <app-form-fields [placeHolder]="'amount'" [type]="'number'" [classNames]="['side-section-input']"
         [minValue]="2"></app-form-fields>
     </div>
 
@@ -84,7 +84,7 @@
         </label>
         <ng-container [ngTemplateOutlet]="requiredTemplate"></ng-container>
       </div>
-      <app-form-fields [placeHolder]="'price'" [type]="'number'" [classNames]="['create-produc-input', 'relative']"
+      <app-form-fields [placeHolder]="'price'" [type]="'number'" [classNames]="['side-section-input', 'relative']"
         [minValue]="0" [textPrefix]="'$&nbsp;'"></app-form-fields>
     </div>
 
@@ -94,7 +94,7 @@
           {{ "discount" | translate | titlecase }}
         </label>
       </div>
-      <app-form-fields [placeHolder]="'discount'" [type]="'number'" [classNames]="['create-produc-input', 'relative']"
+      <app-form-fields [placeHolder]="'discount'" [type]="'number'" [classNames]="['side-section-input', 'relative']"
         [minValue]="0" [textSuffix]="'%&nbsp;'" [hideNumberSpinner]="true"></app-form-fields>
     </div>
 
@@ -104,7 +104,7 @@
           {{ "sale price" | translate | titlecase }}
         </label>
       </div>
-      <app-form-fields [type]="'number'" [classNames]="['create-produc-input', 'relative']" [readOnly]="true"
+      <app-form-fields [type]="'number'" [classNames]="['side-section-input', 'relative']" [readOnly]="true"
         [disabled]="true" [minValue]="0" [textPrefix]="'$&nbsp;'"></app-form-fields>
     </div>
 
@@ -123,7 +123,7 @@
           {{ "sale start date" | translate | titlecase }}
         </label>
       </div>
-      <app-form-fields [type]="'date'" [classNames]="['create-produc-input']"></app-form-fields>
+      <app-form-fields [type]="'date'" [classNames]="['side-section-input']"></app-form-fields>
     </div>
 
     <div class="flex items-baseline justify-start form-row">
@@ -132,7 +132,7 @@
           {{ "sale end date" | translate | titlecase }}
         </label>
       </div>
-      <app-form-fields [type]="'date'" [classNames]="['create-produc-input']"></app-form-fields>
+      <app-form-fields [type]="'date'" [classNames]="['side-section-input']"></app-form-fields>
     </div>
   </div>
 </ng-template>

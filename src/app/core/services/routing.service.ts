@@ -1,13 +1,13 @@
-import { Location } from "@angular/common";
 import { Injectable, inject } from "@angular/core";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { Event, NavigationEnd, Router } from "@angular/router";
-import { filter } from "rxjs";
+import { BehaviorSubject, Observable, filter, skip } from "rxjs";
 
 @Injectable({ providedIn: "root" })
 export class RoutingService {
     router = inject(Router);
-    location = inject(Location);
 
+    private _currentLocation: BehaviorSubject<string> = new BehaviorSubject('');
     private _history: string[] = [];
 
     get history(): string[] {
@@ -18,17 +18,25 @@ export class RoutingService {
         const previousPageIndex = this.history.length - 2;
         return this.history[previousPageIndex];
     }
+    
+    get routerNavigationEndObservable(): Observable<Event> {
+        return this.router.events;
+    }
 
-    get currentLocation() {
-        return this.location.path()
+    get currentLocation(): BehaviorSubject<string> {
+        return this._currentLocation;
     }
 
     constructor() {
-        this.router.events.
-            pipe(filter(event => event instanceof NavigationEnd))
+        this.routerNavigationEndObservable.
+            pipe(
+                takeUntilDestroyed(),
+                filter(event => event instanceof NavigationEnd)
+            )
             .subscribe((event: Event) => {
                 if (event instanceof NavigationEnd) {
                     this.history.push(event.url);
+                    this._currentLocation.next(event.urlAfterRedirects);
                 }
             })
     }

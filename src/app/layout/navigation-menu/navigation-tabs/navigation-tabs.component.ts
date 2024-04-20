@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, forwardRef, inject } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, forwardRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
@@ -7,6 +7,8 @@ import { NavigationCollapsableComponent } from "../navigation-collapsable/naviga
 import { TranslateModule } from '@ngx-translate/core';
 import { NavItemType, NavigationItem } from 'src/app/models';
 import { RoutingService } from 'src/app/core/services';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { skip } from 'rxjs';
 
 @Component({
   selector: 'app-navigation-tabs',
@@ -32,9 +34,9 @@ export class NavigationTabsComponent {
   navItemType = NavItemType;
   currentSelectedRootTab = 0;
 
-  get isActiveTab(): boolean {
-    return this.routingService.currentLocation.includes(this.item.title.toLowerCase());
-  }
+  isActiveTab!: boolean
+  cdr = inject(ChangeDetectorRef);
+
 
   openTap() {
     this.openNextTab = true;
@@ -46,4 +48,15 @@ export class NavigationTabsComponent {
     this.openNextTab = false;
   }
 
+  constructor() {
+    this.routingService?.currentLocation
+    .pipe(
+      skip(1),
+      takeUntilDestroyed()
+    )
+    .subscribe(route => {
+      this.isActiveTab = route.includes(this.item.title.toLowerCase());
+      this.cdr.markForCheck()
+    })
+  }
 }

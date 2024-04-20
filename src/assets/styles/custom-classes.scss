@@ -5,14 +5,6 @@
   }
 }
 
-.hover-link {
-  @apply hover:bg-primary-700 hover:font-medium hover:rounded-md;
-}
-
-.mdc-notched-outline__notch {
-  border-right: none !important;
-}
-
 .nav-menu-collapsed {
   width: 6rem !important;
   align-items: center;
@@ -44,8 +36,25 @@
 
 }
 
+.hover-link {
+  @apply hover:bg-primary-700 hover:font-medium hover:rounded-md;
+}
+
+.form-row {
+
+  @include mobile() {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ck-editor__editable_inline {
+    min-height: 300px !important;
+    background-color: #f8f8f8 !important;
+    border: unset !important;
+  }
+}
+
 .rtl {
-  direction: rtl;
 
   .nav-menu-collapsed {
     mat-icon {
@@ -66,19 +75,21 @@
       margin-right: 20px;
     }
   }
+
+  .material-icons {
+    direction: rtl;
+  }
 }
 
-.ltr {
-  direction: ltr;
-}
 
-.create-produc-input {
+.side-section-input {
   flex-grow: 1;
 
   @include mobile() {
     width: 100%;
 
-    mat-form-field {
+    mat-form-field,
+    app-cdk-editor {
       width: 100%;
       margin-top: 8px;
     }
@@ -87,8 +98,9 @@
   @include desktop() {
 
     mat-form-field,
-    .mat-mdc-form-field {
-      width: 60%;
+    .mat-mdc-form-field,
+    app-cdk-editor {
+      width: 70%;
     }
   }
 
@@ -96,101 +108,7 @@
 
     .mdc-notched-outline,
     .mdc-text-field {
-      background-color: #f8f8f8;
-    }
-  }
-}
-
-.prePosition {
-  top: 0;
-
-  @include mobile() {
-    top: 7px;
-  }
-
-  position: absolute;
-}
-
-[dir=ltr] {
-  .postPosition {
-    @include desktop() {
-      transform: translate(-39px, 4px);
-    }
-
-    @include mobile() {
-      position: absolute;
-      right: -1px;
-      top: 7px;
-    }
-  }
-
-  .prePosition {
-    left: -4px;
-  }
-
-  mat-form-field.preIconContainer {
-
-    .mdc-notched-outline,
-    .mdc-text-field {
-      transform: translateX(36px);
-    }
-  }
-
-}
-
-[dir=rtl] {
-  .postPosition {
-    @include desktop() {
-      transform: translate(1.95rem, 4px);
-    }
-
-    @include mobile() {
-      position: absolute;
-      left: -6px;
-      top: 7px;
-    }
-  }
-
-  .prePosition {
-    right: -4px;
-  }
-
-  mat-form-field.preIconContainer {
-
-    .mdc-notched-outline,
-    .mdc-text-field {
-      transform: translateX(-36px);
-    }
-  }
-
-}
-
-.input-icon {
-  background-color: #efefe7;
-  color: #7c7b7b;
-  font-size: 1.3rem;
-  padding: 17px 10px;
-}
-
-.create-product {
-  &__form {
-    @include mobile() {
-      app-cdk-editor {
-        width: 100%;
-        margin-top: 10px;
-      }
-    }
-
-    @include desktop() {
-      app-cdk-editor {
-        width: 60%;
-      }
-    }
-
-    .ck-editor__editable_inline {
-      min-height: 300px !important;
-      background-color: #f8f8f8 !important;
-      border: unset !important;
+      @apply bg-piege;
     }
   }
 }

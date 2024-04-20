@@ -2,4 +2,13 @@
     .active-tab {
         @apply bg-primary-800 rounded-md font-medium;
     }
+
+    ::ng-deep {
+
+        .nav-tab-group {
+            mat-tab-header {
+                display: none;
+            }
+        }
+    }
 }

@@ -1,13 +1,24 @@
 :host {
     .header-container {
         background: #efefe7;
+
+        ::ng-deep {
+            .mdc-button {
+                min-width: 40px;
+            }
+        
+            .mat-mdc-icon-button:hover .mat-mdc-button-persistent-ripple::before {
+                opacity: 0;
+            }
+        
+            .mat-mdc-icon-button .mat-mdc-button-ripple {
+                display: none !important;
+            }
+        }
     }
 
     .home-icon {
-        @apply text-custom-grey cursor-pointer text-[28px];
-        width: 28px !important;
-        height: 28px !important;
+        @apply text-custom-grey cursor-pointer text-[28px] w-7 h-7;
     }
 
-   
 }

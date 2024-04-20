@@ -43,25 +43,25 @@ import { InputFieldsTypes } from 'src/app/models';
 export class FormFieldsComponent {
   @Input() type!: string;
   @Input() label!: string;
+  @Input() actionButtonLabel!: boolean;
   @Input() placeHolder!: string;
-  @Input() optionList!: { name: string; value: any }[];
+  @Input() optionsList!: { name: string; value: any }[];
   @Input() fileTypes!: string;
   @Input() required!: boolean;
-  @Input() actionButtonLabel!: boolean;
+  @Input() readOnly!: boolean;
+  @Input() disabled!: boolean;
   @Input() formFieldAppearance: MatFormFieldAppearance = 'fill';
   @Input() floatLabel: FloatLabelType = 'auto';
   @Input() subscriptSizing: SubscriptSizing = 'dynamic';
-  @Input() classNames!: string[];
   @Input() textAreaMinRow!: number;
   @Input() textAreaMaxRow!: number;
   @Input() textPrefix!: string;
   @Input() iconPrefix!: string;
   @Input() textSuffix!: string;
   @Input() iconSuffix!: string;
-  @Input() readOnly!: boolean;
   @Input() minValue!: number;
-  @Input() disabled!: boolean;
   @Input() hideNumberSpinner!:boolean;
+  @Input() classNames!: string[]; 
 
   @ViewChild('autosize') autosize!: CdkTextareaAutosize;
 
@@ -70,7 +70,6 @@ export class FormFieldsComponent {
 
 
   @HostBinding('class') get hostClasses(): string {
-    
       return (this.classNames && this.classNames.length > 0) ? this.classNames.join(' ') : ''
   }
 }
