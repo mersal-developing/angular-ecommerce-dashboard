@@ -14,7 +14,7 @@ export const NavLinks: NavigationItem[] = [
     {
         id: 'products-group',
         title: 'Products',
-        type: 'collabsable',
+        type: 'collapsable',
         icon: 'dashboard',
         hidden: false,
         active: true,
