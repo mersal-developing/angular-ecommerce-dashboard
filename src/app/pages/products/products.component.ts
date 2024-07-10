@@ -1,13 +1,13 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
-import { BreadcrumbsComponent } from 'src/app/components/breadcrumbs/breadcrumbs.component';
+import { BreadcrumbsComponent } from 'src/app/shared/components/breadcrumbs/breadcrumbs.component';
 import { DashboardRoutes, Product } from 'src/app/models';
 import { Observable } from 'rxjs';
-import { TableComponent } from 'src/app/components/table/table.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
+import { TableComponent } from 'src/app/shared/components/table/table.component';
 
 @Component({
   selector: 'app-products',

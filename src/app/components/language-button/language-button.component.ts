@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MatMenuModule } from '@angular/material/menu';
 import { TranslationService } from 'src/app/services';
 import { Observable } from 'rxjs';
-import { LanguagePipe } from "src/app/pipes/language.pipe";
 import { MatIconModule } from '@angular/material/icon';
+import { LanguagePipe } from 'src/app/core/pipes/language.pipe';
 
 @Component({
   selector: 'app-language-button',
