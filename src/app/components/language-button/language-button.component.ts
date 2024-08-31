@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatMenuModule } from '@angular/material/menu';
 import { TranslationService } from 'src/app/services';
@@ -14,7 +14,7 @@ import { LanguagePipe } from 'src/app/core/pipes/language.pipe';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, MatMenuModule, LanguagePipe, MatIconModule]
 })
-export class LanguageButtonComponent {
+export class LanguageButtonComponent implements OnInit{
   translationService = inject(TranslationService);
   languages!: string[];
   currentLanguage!: Observable<string | undefined>;

@@ -1,10 +1,5 @@
 import { Injectable, inject } from "@angular/core";
-import {
-    HttpEvent,
-    HttpInterceptor,
-    HttpHandler,
-    HttpRequest,
-} from "@angular/common/http";
+import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { BACKEND_URL } from "../config/backend-url.factory";
 import { LoadingBarService } from "src/app/services";
