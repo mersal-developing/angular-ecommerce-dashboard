@@ -27,13 +27,10 @@ import { TableComponent } from 'src/app/shared/components/table/table.component'
 export class ProductsComponent {
   router = inject(Router);
   products!: Observable<Product[]>;
-  displayedColumns = ['no', 'image','name', 'category', 'quantity', 'price', 'active', 'actions'];
+  displayedColumns = ['no', 'image', 'name', 'category', 'quantity', 'price', 'active', 'actions'];
   actions = ['view', 'edit', 'delete']
 
-  ngOnInit() {
-  }
-
-  createProduct(){
+  createProduct() {
     this.router.navigateByUrl(`${DashboardRoutes.Products}/${DashboardRoutes.Create}`)
   }
 
