@@ -1,8 +1,8 @@
 import { Injectable, inject } from '@angular/core';
 import { LocalStorageService } from "src/app/services";
-import { NavLinks,  } from 'src/app/models';
 import { BehaviorSubject } from 'rxjs';
 import { NavigationItem } from 'src/app/models';
+import { NavLinks } from 'src/app/lib/navigation-links';
 
 @Injectable({
     providedIn: 'root'
@@ -15,7 +15,7 @@ export class NavigationMenuService {
     get initialMenuStatus() {
         return this.localStorageService.getValue(this.menuStorageKey);
     }
-    
+
     setMenuStatus(menuStatus: number): void {
         this.localStorageService.setValue(this.menuStorageKey, menuStatus.toString());
         this.menuStatus$.next(menuStatus.toString());
