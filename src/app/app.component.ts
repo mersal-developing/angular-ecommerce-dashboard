@@ -5,7 +5,6 @@ import { MainLayoutComponent } from './layout/main-layout/main-layout.component'
 
 @Component({
     selector: 'app-root',
-    standalone: true,
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
     imports: [CommonModule, MainLayoutComponent]

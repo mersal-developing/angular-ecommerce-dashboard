@@ -5,12 +5,11 @@ import { LoadingBarService } from 'src/app/services';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-loading-bar',
-  standalone: true,
-  imports: [CommonModule, MatProgressBarModule],
-  templateUrl: './loading-bar.component.html',
-  styleUrls: ['./loading-bar.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-loading-bar',
+    imports: [CommonModule, MatProgressBarModule],
+    templateUrl: './loading-bar.component.html',
+    styleUrls: ['./loading-bar.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoadingBarComponent {
   loadingBarService = inject(LoadingBarService);

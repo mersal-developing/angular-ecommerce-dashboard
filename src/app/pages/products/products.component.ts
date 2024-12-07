@@ -10,19 +10,18 @@ import { Router } from '@angular/router';
 import { TableComponent } from 'src/app/shared/components/table/table.component';
 
 @Component({
-  selector: 'app-products',
-  standalone: true,
-  imports: [
-    CommonModule,
-    BreadcrumbsComponent,
-    TranslateModule,
-    TableComponent,
-    MatIconModule,
-    MatButtonModule
-  ],
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-products',
+    imports: [
+        CommonModule,
+        BreadcrumbsComponent,
+        TranslateModule,
+        TableComponent,
+        MatIconModule,
+        MatButtonModule
+    ],
+    templateUrl: './products.component.html',
+    styleUrls: ['./products.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductsComponent {
   router = inject(Router);

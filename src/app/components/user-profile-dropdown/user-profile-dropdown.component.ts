@@ -6,12 +6,11 @@ import { MatDividerModule } from '@angular/material/divider';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-user-profile-dropdown',
-  standalone: true,
-  imports: [CommonModule, MatIconModule, MatMenuModule, MatDividerModule, TranslateModule],
-  templateUrl: './user-profile-dropdown.component.html',
-  styleUrls: ['./user-profile-dropdown.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-user-profile-dropdown',
+    imports: [CommonModule, MatIconModule, MatMenuModule, MatDividerModule, TranslateModule],
+    templateUrl: './user-profile-dropdown.component.html',
+    styleUrls: ['./user-profile-dropdown.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserProfileDropdownComponent {
 

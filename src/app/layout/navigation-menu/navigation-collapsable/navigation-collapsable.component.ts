@@ -11,12 +11,11 @@ import { skip } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
-  selector: 'app-navigation-collapsable',
-  standalone: true,
-  templateUrl: './navigation-collapsable.component.html',
-  styleUrls: ['./navigation-collapsable.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, NavigationItemComponent, MatIconModule, NavigationTabsComponent, TranslateModule]
+    selector: 'app-navigation-collapsable',
+    templateUrl: './navigation-collapsable.component.html',
+    styleUrls: ['./navigation-collapsable.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, NavigationItemComponent, MatIconModule, NavigationTabsComponent, TranslateModule]
 })
 export class NavigationCollapsableComponent {
 

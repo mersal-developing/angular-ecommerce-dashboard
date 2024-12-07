@@ -4,17 +4,15 @@ import { BreadcrumbsComponent } from "../../shared/components/breadcrumbs/breadc
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-dashboard',
-  standalone: true,
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    CommonModule,
-    BreadcrumbsComponent,
-    TranslateModule
-
-  ]
+    selector: 'app-dashboard',
+    templateUrl: './dashboard.component.html',
+    styleUrls: ['./dashboard.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        CommonModule,
+        BreadcrumbsComponent,
+        TranslateModule
+    ]
 })
 export class DashboardComponent {
 

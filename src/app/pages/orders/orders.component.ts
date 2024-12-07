@@ -4,16 +4,15 @@ import { TranslateModule } from '@ngx-translate/core';
 import { BreadcrumbsComponent } from 'src/app/shared/components/breadcrumbs/breadcrumbs.component';
 
 @Component({
-  selector: 'app-orders',
-  standalone: true,
-  imports: [
-    CommonModule, 
-    BreadcrumbsComponent,
-    TranslateModule
-  ],
-  templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-orders',
+    imports: [
+        CommonModule,
+        BreadcrumbsComponent,
+        TranslateModule
+    ],
+    templateUrl: './orders.component.html',
+    styleUrls: ['./orders.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OrdersComponent {
 

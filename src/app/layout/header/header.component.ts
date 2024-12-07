@@ -11,7 +11,6 @@ import { MenuOpenStatus } from 'src/app/models';
 
 @Component({
     selector: 'app-header',
-    standalone: true,
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,

@@ -11,19 +11,18 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { skip } from 'rxjs';
 
 @Component({
-  selector: 'app-navigation-tabs',
-  standalone: true,
-  templateUrl: './navigation-tabs.component.html',
-  styleUrls: ['./navigation-tabs.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    CommonModule,
-    MatTabsModule,
-    MatIconModule,
-    NavigationItemComponent,
-    TranslateModule,
-    forwardRef(() => NavigationCollapsableComponent)
-  ]
+    selector: 'app-navigation-tabs',
+    templateUrl: './navigation-tabs.component.html',
+    styleUrls: ['./navigation-tabs.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        CommonModule,
+        MatTabsModule,
+        MatIconModule,
+        NavigationItemComponent,
+        TranslateModule,
+        forwardRef(() => NavigationCollapsableComponent)
+    ]
 })
 
 export class NavigationTabsComponent {

@@ -7,7 +7,6 @@ import { LoadingBarComponent } from "../../shared/components/loading-bar/loading
 
 @Component({
     selector: 'app-main-layout',
-    standalone: true,
     templateUrl: './main-layout.component.html',
     styleUrls: ['./main-layout.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,

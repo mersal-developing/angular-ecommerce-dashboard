@@ -7,12 +7,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { LanguagePipe } from 'src/app/core/pipes/language.pipe';
 
 @Component({
-  selector: 'app-language-button',
-  standalone: true,
-  templateUrl: './language-button.component.html',
-  styleUrls: ['./language-button.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, MatMenuModule, LanguagePipe, MatIconModule]
+    selector: 'app-language-button',
+    templateUrl: './language-button.component.html',
+    styleUrls: ['./language-button.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, MatMenuModule, LanguagePipe, MatIconModule]
 })
 export class LanguageButtonComponent implements OnInit{
   translationService = inject(TranslationService);

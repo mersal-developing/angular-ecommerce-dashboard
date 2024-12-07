@@ -1,7 +1,7 @@
 import { Injectable, inject } from "@angular/core";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { Event, NavigationEnd, Router } from "@angular/router";
-import { BehaviorSubject, Observable, filter, skip } from "rxjs";
+import { BehaviorSubject, Observable, filter } from "rxjs";
 
 @Injectable({ providedIn: "root" })
 export class RoutingService {
@@ -18,7 +18,7 @@ export class RoutingService {
         const previousPageIndex = this.history.length - 2;
         return this.history[previousPageIndex];
     }
-    
+
     get routerNavigationEndObservable(): Observable<Event> {
         return this.router.events;
     }

@@ -18,26 +18,25 @@ import { TranslationService } from 'src/app/services';
 import { InputFieldsTypes } from 'src/app/models';
 
 @Component({
-  selector: 'app-form-fields',
-  standalone: true,
-  imports: [
-    MatSelectModule,
-    MatSlideToggleModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatRadioModule,
-    CommonModule,
-    ReactiveFormsModule,
-    TextFieldModule,
-    MatDatepickerModule,
-    TranslateModule,
-    CdkEditorComponent
-  ],
-  providers: [provideNativeDateAdapter(), { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
-  templateUrl: './form-fields.component.html',
-  styleUrl: './form-fields.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-form-fields',
+    imports: [
+        MatSelectModule,
+        MatSlideToggleModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatRadioModule,
+        CommonModule,
+        ReactiveFormsModule,
+        TextFieldModule,
+        MatDatepickerModule,
+        TranslateModule,
+        CdkEditorComponent
+    ],
+    providers: [provideNativeDateAdapter(), { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
+    templateUrl: './form-fields.component.html',
+    styleUrl: './form-fields.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class FormFieldsComponent {

@@ -18,7 +18,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 
 @Component({
     selector: 'app-create-product',
-    standalone: true,
     templateUrl: './create-product.component.html',
     styleUrl: './create-product.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,

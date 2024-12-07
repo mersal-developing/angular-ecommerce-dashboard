@@ -6,12 +6,11 @@ import { TranslateModule } from '@ngx-translate/core';
 import { LinkTargetType, NavigationItem } from 'src/app/models';
 
 @Component({
-  selector: 'app-navigation-item',
-  standalone: true,
-  imports: [CommonModule, MatIconModule, RouterModule, TranslateModule],
-  templateUrl: './navigation-item.component.html',
-  styleUrls: ['./navigation-item.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-navigation-item',
+    imports: [CommonModule, MatIconModule, RouterModule, TranslateModule],
+    templateUrl: './navigation-item.component.html',
+    styleUrls: ['./navigation-item.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavigationItemComponent {
   @Input({ required: true }) item!: NavigationItem;

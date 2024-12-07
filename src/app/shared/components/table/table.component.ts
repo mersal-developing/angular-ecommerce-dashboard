@@ -11,20 +11,19 @@ import { Router } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 
 @Component({
-  selector: 'app-table',
-  standalone: true,
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    CommonModule,
-    MatTableModule,
-    MatPaginatorModule,
-    TranslateModule,
-    MatIconModule,
-    ActionButtonsComponent,
-    NgOptimizedImage
-  ]
+    selector: 'app-table',
+    templateUrl: './table.component.html',
+    styleUrls: ['./table.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        CommonModule,
+        MatTableModule,
+        MatPaginatorModule,
+        TranslateModule,
+        MatIconModule,
+        ActionButtonsComponent,
+        NgOptimizedImage
+    ]
 })
 export class TableComponent {
   @Input({ required: true }) tableData!: any;

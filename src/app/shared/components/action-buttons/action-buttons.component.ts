@@ -5,12 +5,11 @@ import { MatMenuModule } from '@angular/material/menu';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-action-buttons',
-  standalone: true,
-  imports: [CommonModule, MatIconModule, MatMenuModule, TranslateModule],
-  templateUrl: './action-buttons.component.html',
-  styleUrls: ['./action-buttons.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-action-buttons',
+    imports: [CommonModule, MatIconModule, MatMenuModule, TranslateModule],
+    templateUrl: './action-buttons.component.html',
+    styleUrls: ['./action-buttons.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ActionButtonsComponent {
   @Input() actions!: string[];

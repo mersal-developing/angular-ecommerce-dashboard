@@ -15,19 +15,18 @@ import { NavigationMenuService } from 'src/app/layout/service';
 import { MenuOpenStatus, NavItemType, NavigationItem } from 'src/app/models';
 
 @Component({
-  selector: 'app-navigation-menu',
-  standalone: true,
-  templateUrl: './navigation-menu.component.html',
-  styleUrls: ['./navigation-menu.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    NavigationItemComponent,
-    NavigationCollapsableComponent,
-    NavigationGroupComponent,
-    NavigationTabsComponent,
-    MatIconModule,
-    RouterLink
-  ]
+    selector: 'app-navigation-menu',
+    templateUrl: './navigation-menu.component.html',
+    styleUrls: ['./navigation-menu.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        NavigationItemComponent,
+        NavigationCollapsableComponent,
+        NavigationGroupComponent,
+        NavigationTabsComponent,
+        MatIconModule,
+        RouterLink
+    ]
 })
 export class NavigationMenuComponent implements OnInit {
   localStorageService = inject(LocalStorageService);

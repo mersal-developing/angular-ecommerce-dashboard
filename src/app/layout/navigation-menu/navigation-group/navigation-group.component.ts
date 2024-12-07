@@ -8,19 +8,18 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NavItemType, NavigationItem } from 'src/app/models';
 
 @Component({
-  selector: 'app-navigation-group',
-  standalone: true,
-  templateUrl: './navigation-group.component.html',
-  styleUrls: ['./navigation-group.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    CommonModule,
-    NavigationItemComponent,
-    NavigationCollapsableComponent,
-    NavigationTabsComponent,
-    MatIconModule,
-    TranslateModule
-  ]
+    selector: 'app-navigation-group',
+    templateUrl: './navigation-group.component.html',
+    styleUrls: ['./navigation-group.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        CommonModule,
+        NavigationItemComponent,
+        NavigationCollapsableComponent,
+        NavigationTabsComponent,
+        MatIconModule,
+        TranslateModule
+    ]
 })
 export class NavigationGroupComponent {
   @Input({ required: true }) item!: NavigationItem;

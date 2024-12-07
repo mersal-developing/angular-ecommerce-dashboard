@@ -4,12 +4,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { RoutingService } from 'src/app/core/services';
 
 @Component({
-  selector: 'app-breadcrumbs',
-  standalone: true,
-  imports: [CommonModule, MatIconModule],
-  templateUrl: './breadcrumbs.component.html',
-  styleUrls: ['./breadcrumbs.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-breadcrumbs',
+    imports: [CommonModule, MatIconModule],
+    templateUrl: './breadcrumbs.component.html',
+    styleUrls: ['./breadcrumbs.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BreadcrumbsComponent {
   @Input() showBackButton!: boolean;
